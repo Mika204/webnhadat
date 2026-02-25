@@ -1,0 +1,98 @@
+:root {
+    --bs-font-sans-serif: 'Inter', sans-serif;
+
+    /* Main theme colors */
+    --primary-color: #0d6efd;      /* Bootstrap primary */
+    --secondary-color: #6c757d;
+    --dark-color: #212529;
+    --light-color: #f8f9fa;
+
+    /* Custom gray scale (Bootstrap style) */
+    --gray-100: #f8f9fa;
+    --gray-200: #e9ecef;
+    --gray-300: #dee2e6;
+    --gray-400: #ced4da;
+    --gray-500: #adb5bd;
+    --gray-600: #6c757d;
+    --gray-700: #495057;
+    --gray-800: #343a40;
+    --gray-900: #212529;
+}
+
+.site-header {
+    height: 64px;
+}
+
+.header-inner {
+    height: 64px;
+}
+
+.hero-section {
+    padding: 10px 0;
+    background-color: #f8fafc;
+
+    /* Tạo grid pattern */
+    background-image:
+        linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+
+    background-size: 20px 20px;
+}
+
+.hero-title {
+    font-size: 2.5rem;          /* fs-4xl */
+    font-weight: 600;           /* fw-semibold */
+    letter-spacing: -0.02em;    /* tracking-tight */
+    color: #0f172a;             /* text-slate-900 */
+    margin-bottom: 1.5rem;      /* mb-4 */
+    margin-left: auto;          /* mx-auto */
+    margin-right: auto;
+    line-height: 1.2;           /* lh-sm */
+    max-width: 48rem;           /* style inline */
+}
+
+.brand-icon {
+    width: 32px;
+    height: 32px;
+    background-color: #212529;
+    color: white;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-desc {
+    font-size: 0.875rem;      
+    color: #6c757d;           
+    font-weight: 300;         
+    line-height: 1.75;
+    max-width: 320px;         
+}
+
+.footer-bottom {
+    padding-top: 1.5rem;
+    border-top: 1px solid #e9ecef;
+
+    display: flex;
+    justify-content: center;   /* căn giữa ngang */
+    align-items: center;       /* căn giữa dọc */
+    text-align: center;        /* căn giữa chữ */
+}
+
+.footer-copy {
+    font-size: 0.875rem;
+    color: #6c757d;
+    font-weight: 300;
+    margin: 0;
+}
+
+
+@media (min-width: 768px) {
+    .footer-bottom {
+        flex-direction: row;
+    }
+}
+
+
+
