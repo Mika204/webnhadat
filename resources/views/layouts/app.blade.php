@@ -20,52 +20,48 @@
     
 <body>
     <!-- HEADER -->
-    <header class="site-header fixed-top bg-white border-bottom shadow-sm">
+    <header class="site-header fixed-top">
         <div class="container-xl">
-            <div class="header-inner d-flex justify-content-between align-items-center">    
-            <!-- Logo -->
-            <a href="#" class="navbar-brand fw-semibold text-dark d-flex align-items-center gap-2">
-                <div class="brand-icon">
-                    <iconify-icon icon="solar:home-smile-linear"></iconify-icon>
-                </div>
-                EstateX
-            </a>
-            
-
-            <!-- Global Search Bar in Header -->
-            <div class="d-none d-md-flex flex-grow-1 mx-5" style="max-width: 32rem;">
-                <div class="position-relative w-100 group">
-                    <div class="position-absolute top-50 start-0 translate-middle-y ps-3 d-flex align-items-center" 
-                        style="pointer-events: none;">
-                        <iconify-icon icon="solar:magnifer-linear" 
-                        class="text-slate-400 fs-lg transition-colors"></iconify-icon>
+            <div class="header-inner">
+    
+                <!-- Logo -->
+                <a href="#" class="brand">
+                    <div class="brand-icon">
+                        <iconify-icon icon="solar:home-smile-linear"></iconify-icon>
                     </div>
-                    <input type="text" class="form-control rounded-pill search-input ps-5 pe-3 py-2 fs-sm fw-light w-100" 
-                            placeholder="Tìm kiếm khu vực, tên đường,...">
-                </div>
-            </div>
-
-            <!-- Actions -->
-            <div class="d-none d-md-flex align-items-center gap-3">
-                <a href="#" class="fs-sm fw-medium text-slate-600 hover-text-slate-900 text-decoration-none transition-colors">Đăng nhập</a>
-                <a href="#" class="btn btn-slate-900 rounded-pill fs-sm fw-medium px-4 py-2 shadow-sm d-inline-flex align-items-center justify-content-center">
-                    Đăng tin miễn phí
+                    <span class="brand-text">EstateX</span>
                 </a>
+    
+                <!-- Search -->
+                <div class="header-search">
+                    <div class="search-wrapper">
+                        <iconify-icon icon="solar:magnifer-linear" class="search-icon"></iconify-icon>
+                        <input type="text" class="form-control search-input"
+                            placeholder="Tìm kiếm khu vực, tên đường,...">
+                    </div>
+                </div>
+    
+                <!-- Desktop Actions -->
+                <div class="header-actions">
+                    <a href="#" class="login-link">Đăng nhập</a>
+                    <a href="#" class="btn btn-dark rounded-pill px-4">
+                        Đăng tin miễn phí
+                    </a>
+                </div>
+    
+                <!-- Mobile Buttons -->
+                <div class="mobile-actions">
+                    <button type="button" class="icon-btn">
+                        <iconify-icon icon="solar:magnifer-linear"></iconify-icon>
+                    </button>
+                    <button type="button" class="icon-btn">
+                        <iconify-icon icon="solar:hamburger-menu-linear"></iconify-icon>
+                    </button>
+                </div>
+    
             </div>
-
-            <!-- Mobile menu buttons -->
-            <div class="d-flex d-md-none align-items-center gap-2">
-                <button type="button" class="btn btn-link text-slate-500 hover-text-slate-900 p-2 text-decoration-none border-0">
-                    <iconify-icon icon="solar:magnifer-linear" class="fs-xl"></iconify-icon>
-                </button>
-                <button type="button" class="btn btn-link text-slate-500 hover-text-slate-900 p-2 text-decoration-none border-0">
-                    <iconify-icon icon="solar:hamburger-menu-linear" class="fs-3xl"></iconify-icon>
-                </button>
-            </div>
-
         </div>
-    </div>
-</header>
+    </header>
 <!-- Đẩy nội dung xuống vì header fixed-top -->
 <div style="margin-top: 4rem;"></div>
     
