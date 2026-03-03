@@ -49,17 +49,33 @@
 }
 
 .hero-title {
-    font-size: 2.5rem;          /* fs-4xl */
-    font-weight: 600;           /* fw-semibold */
-    letter-spacing: -0.02em;    /* tracking-tight */
-    color: #0f172a;             /* text-slate-900 */
-    margin-bottom: 1.5rem;      /* mb-4 */
-    margin-left: auto;          /* mx-auto */
+    font-size: 2.5rem;          
+    font-weight: 600;          
+    letter-spacing: -0.02em;    
+    color: #0f172a;             
+    margin-bottom: 1.5rem;      
+    margin-left: auto;          
     margin-right: auto;
-    line-height: 1.2;           /* lh-sm */
-    max-width: 48rem;           /* style inline */
+    line-height: 1.2;          
+    max-width: 48rem;           
 }
 
+.hero-subtitle {
+    max-width: 672px;        
+    margin: 0 auto 3rem;     
+    font-weight: 300;       
+    color: #6c757d;         
+    font-size: 1rem;
+    line-height: 1.7;
+    text-align: center;
+}
+
+/* Tăng size khi màn hình lớn */
+@media (min-width: 768px) {
+    .hero-subtitle {
+        font-size: 1.125rem;
+    }
+} 
 .brand {
     display: flex;
     align-items: center;
@@ -154,22 +170,143 @@
     }
 }
 
+/* ===== Main Layout ===== */
+
+.main-content {
+    padding: 20px 0;
+}
+
+/* ===== Category Bar ===== */
+
+.category-bar {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    height: 60px;
+    border-bottom: 1px solid #eee;
+}
+
+/* ===== Tabs ===== */
+
+.category-tabs {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.category-link {
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #64748b;
+    padding: 0 4px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    transition: 0.2s ease;
+}
+
+.category-link:hover {
+    color: #0f172a;
+}
+
+.category-link.active {
+    color: #0f172a;
+    border-bottom: 2px solid #0f172a;
+}
+
+/* ===== Filter Group ===== */
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-left: 2rem;
+}
+
+/* ===== Filter Button ===== */
+
+.filter-btn {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 999px;
+    padding: 6px 14px;
+
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #334155;
+
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+    background: #f8fafc;
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-left: auto;   /* đẩy qua phải */
+}
+
+/* ===== FOOTER ===== */
+
+.footer {
+    padding: 60px 0 30px;
+    background-color: #f8f9fa;
+}
+
+.contact-info {
+    text-align: left;
+    margin-bottom: 40px;
+}
+
+/* Footer Brand */
+
+.footer-brand {
+    display: inline-flex;
+    align-items: left;
+    gap: 10px;
+
+    text-decoration: none;
+    color: #212529;
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.footer-brand-icon {
+    width: 36px;
+    height: 36px;
+    background-color: #212529;
+    color: #ffffff;
+    border-radius: 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .footer-desc {
     font-size: 0.875rem;      
     color: #6c757d;           
     font-weight: 300;         
     line-height: 1.75;
-    max-width: 320px;         
+    max-width: 320px;
+    margin: 0 ;
 }
+
+/* Bottom */
 
 .footer-bottom {
     padding-top: 1.5rem;
     border-top: 1px solid #e9ecef;
-
-    display: flex;
-    justify-content: center;   /* căn giữa ngang */
-    align-items: center;       /* căn giữa dọc */
-    text-align: center;        /* căn giữa chữ */
+    text-align: center;
 }
 
 .footer-copy {

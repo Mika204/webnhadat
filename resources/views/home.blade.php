@@ -11,9 +11,9 @@
                 CHÀO MỪNG ĐẾN VỚI ESTATEX
             </br>TÌM KIẾM KHÔNG GIAN SỐNG HOÀN HẢO CỦA BẠN
             </h1>
-            <p class="fs-base fs-sm-lg text-slate-500 mx-auto fw-light mb-5" style="max-width: 42rem;">
+            <p class="hero-subtitle">
                 Khám phá các căn hộ, nhà phố và biệt thự tuyệt đẹp với trải nghiệm tìm kiếm thông minh và minh bạch nhất.
-            </p>
+            </p>            
             <link rel="stylesheet" href="style.css">
         </div>
     </section>

@@ -43,11 +43,28 @@
     
                 <!-- Desktop Actions -->
                 <div class="header-actions">
-                    <a href="#" class="login-link">Đăng nhập</a>
-                    <a href="#" class="btn btn-dark rounded-pill px-4">
-                        Đăng tin miễn phí
-                    </a>
+
+                    @auth
+                        <span class="me-3">Xin chào, {{ Auth::user()->name }}</span>
+                
+                        <form action="{{ route('logout') }}" method="POST" class="d-inline">
+                            @csrf
+                            <button type="submit" class="btn btn-link p-0">
+                                Đăng xuất
+                            </button>
+                        </form>
+                    @else
+                        <a href="{{ route('login') }}" class="login-link">
+                            Đăng nhập
+                        </a>
+                
+                        <a href="#" class="btn btn-dark rounded-pill px-4">
+                            Đăng tin miễn phí
+                        </a>
+                    @endauth
+                
                 </div>
+                
     
                 <!-- Mobile Buttons -->
                 <div class="mobile-actions">
@@ -65,31 +82,51 @@
 <!-- Đẩy nội dung xuống vì header fixed-top -->
 <div style="margin-top: 4rem;"></div>
     
-    <main>
+    <main class="main-content">
+
+        <!-- Categories + Filter Bar -->
+        <nav class="category-bar">
+            <div class="category-tabs">
+                <a href="#" class="category-link active">Mua bán</a>
+                <a href="#" class="category-link">Cho thuê</a>
+            </div>
+    
+            <div class="filter-group">
+                <div class="filter-dropdown">
+                    <button class="filter-btn">
+                        <iconify-icon icon="solar:map-point-linear"></iconify-icon>
+                        Khu vực
+                        <iconify-icon icon="solar:alt-arrow-down-linear"></iconify-icon>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    
         @yield('content')
+    
     </main>
+    
+
 
     <footer class="footer">
         <div class="contact-info">
-            <a href="#" class="navbar-brand fw-semibold text-dark d-flex align-items-center gap-2">
-                <div class="brand-icon">
+            <a href="#" class="footer-brand">
+                <div class="footer-brand-icon">
                     <iconify-icon icon="solar:home-smile-linear"></iconify-icon>
                 </div>
-                EstateX
-            </a>
+                <span class="footer-brand-text">EstateX</span>
+            </a>            
             <p class="footer-desc">
                 Nền tảng giao dịch bất động sản minh bạch, cung cấp giải pháp tìm kiếm và đăng tin hiệu quả nhất.
             </p>
-            <br>
         </div>
-  
         <div class="footer-bottom">
             <p class="footer-copy">
                 &copy; 2026 EstateX. All rights reserved.
             </p>
         </div>
-        
-      </footer>
+    </footer>
+    
     
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>

@@ -1,0 +1,86 @@
+.auth-wrapper {
+    width: 400px;
+    max-width: 100%;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+    overflow: hidden;
+}
+
+.slide-container {
+    width: 200%;
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.panel {
+    width: 50%;
+    flex-shrink: 0;
+}
+
+/* Slide effect */
+.is-registering .slide-container {
+    transform: translateX(-50%);
+}
+
+.switch-link {
+    color: #0f172a; /* tương đương slate-900 */
+    font-weight: 600;
+    background: none;
+    border: none;
+    padding: 0;
+    transition: all 0.3s ease;
+}
+
+.switch-link:hover {
+    text-decoration: underline;
+    text-decoration-color: #cbd5e1; /* slate-300 */
+    text-underline-offset: 4px;
+}
+
+.auth-icon {
+    width: 40px;
+    height: 40px;
+    background-color: #0f172a;
+    color: #fff;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
+}
+
+.auth-icon iconify-icon {
+    font-size: 20px;
+}
+.auth-subtitle {
+    font-size: 14px;
+    font-weight: 500;
+    color: #6c757d;
+    text-align: center;
+    margin-bottom: 0px; /* tạo khoảng cách xuống form */
+}
+
+.back-home {
+    position: fixed;
+    top: 24px;
+    left: 24px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #64748b; /* tương đương text-slate-500 */
+    transition: color 0.3s ease;
+}
+
+.back-home:hover {
+    color: #0f172a; /* tương đương text-slate-900 */
+}
+
+.back-icon {
+    font-size: 18px;
+    transition: transform 0.3s ease;
+}
+
+.back-home:hover .back-icon {
+    transform: translateX(-4px);
+}
