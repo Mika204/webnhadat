@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.adminapp')
 
 @section('content')
 <h2>Danh sách Người dùng</h2>

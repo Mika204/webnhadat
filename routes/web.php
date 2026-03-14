@@ -19,8 +19,9 @@ use App\Http\Controllers\DatlichhenController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('home');
 });
+
 
 // User
 Route::get('/home', [HomeController::class, 'index'])->name('home');

@@ -39,16 +39,16 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('batdongsan.index') }}">Quản lý BĐS</a>
+                    <a class="nav-link" href="{{ route('admin.batdongsan.index') }}">Quản lý BĐS</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('nguoidung.index') }}">Quản lý Người dùng</a>
+                    <a class="nav-link" href="{{ route('admin.nguoidung.index') }}">Quản lý Người dùng</a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('datlichhen.index') }}">Quản lý Lịch hẹn</a>
+                    <a href="{{ route('admin.datlichhen.index') }}">Quản lý Lịch hẹn</a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('khuvuc.index') }}">Quản lý Khu vực</a>
+                    <a href="{{ route('admin.khuvuc.index') }}">Quản lý Khu vực</a>
                 </li>
             </ul>
         </nav>

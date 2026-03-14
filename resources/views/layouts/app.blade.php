@@ -44,29 +44,34 @@
                 <!-- Desktop Actions -->
                 <div class="header-actions">
                     @auth
+                        <div class="welcome-message me-2">
+                            Xin chào, {{ Auth::user()->hoten }}!
+                        </div>
                         <a href="{{ url('saved') }}" class="header-icon">
                             <iconify-icon icon="solar:bookmark-linear"></iconify-icon>
                         </a>
-                
                         <a href="{{ url('profile') }}" class="header-icon">
                             <iconify-icon icon="solar:user-linear"></iconify-icon>
                         </a>
-                
                         <form action="{{ route('logout') }}" method="POST" class="d-inline">
                             @csrf
                             <button type="submit" class="header-icon-btn">
                                 <iconify-icon icon="solar:logout-2-linear"></iconify-icon>
                             </button>
                         </form>
+                
                     @else
                         <a href="{{ route('login') }}" class="login-link">
                             Đăng nhập
                         </a>
+                
                         <a href="#" class="btn btn-dark rounded-pill px-4">
                             Đăng tin miễn phí
                         </a>
                     @endauth
+                
                 </div>
+                
                 
                 
     
@@ -91,8 +96,6 @@
         <nav class="category-bar">
             <div class="category-tabs">
                 <a href="#" class="category-link active">Tất cả</a>
-                <a href="#" class="category-link">Mua bán</a>
-                <a href="#" class="category-link">Cho thuê</a>
             </div>
     
             <div class="filter-group">

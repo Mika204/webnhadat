@@ -65,7 +65,7 @@
 
                 <div class="mb-3">
                     <label class="form-label small fw-semibold">Họ và tên</label>
-                    <input type="text" name="name" class="form-control">
+                    <input type="text" name="hoten" class="form-control">
                 </div>
 
                 <div class="mb-3">
@@ -77,7 +77,14 @@
                     <label class="form-label small fw-semibold">Mật khẩu</label>
                     <input type="password" name="password" class="form-control">
                 </div>
-
+                <div class="mb-3">
+                    <label class="form-label small fw-semibold">Nhập lại mật khẩu</label>
+                    <input type="password" name="password_confirmation" class="form-control">               
+                 </div>
+                 <div class="mb-3">
+                    <label class="form-label small fw-semibold">SĐT</label>
+                    <input type="sdt" name="sdt" class="form-control">               
+                 </div>
                 <button type="submit" class="btn btn-dark w-100">
                     Đăng ký
                 </button>

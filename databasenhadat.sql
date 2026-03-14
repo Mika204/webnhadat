@@ -93,3 +93,13 @@ INSERT INTO batdongsan (idKv, tenBds, gia, moTa) VALUES
 (6, 'Nhà phố Tân Bình', 4800000000, 'Nhà gần sân bay Tân Sơn Nhất'),
 (7, 'Đất nền Thủ Đức', 2800000000, 'Đất khu dân cư mới');
 
+ALTER TABLE users 
+CHANGE passworduser password VARCHAR(255);
+
+ALTER TABLE users 
+MODIFY diachi VARCHAR(255) DEFAULT NULL,
+MODIFY sdt VARCHAR(20) DEFAULT NULL;
+
+ALTER TABLE users 
+ADD created_at TIMESTAMP NULL,
+ADD updated_at TIMESTAMP NULL;
