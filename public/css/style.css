@@ -2,7 +2,7 @@
     --bs-font-sans-serif: 'Inter', sans-serif;
 
     /* Main theme colors */
-    --primary-color: #0d6efd;      /* Bootstrap primary */
+    --primary-color: #0d6efd;      
     --secondary-color: #6c757d;
     --dark-color: #212529;
     --light-color: #f8f9fa;
@@ -124,11 +124,38 @@
 
 /* ===== ACTIONS ===== */
 
-.header-actions {
-    display: none;
-    align-items: center;
-    gap: 20px;
+.header-actions{
+    display:flex;
+    align-items:center;
+    gap:18px;
 }
+
+.header-icon{
+    font-size:22px;
+    color:#333;
+    text-decoration:none;
+    display:flex;
+    align-items:center;
+}
+
+.header-icon:hover{
+    color:#0d6efd;
+}
+
+.header-icon-btn{
+    border:none;
+    background:none;
+    font-size:22px;
+    color:#333;
+    padding:0;
+    display:flex;
+    align-items:center;
+}
+
+.header-icon-btn:hover{
+    color:#dc3545;
+}
+
 
 .login-link {
     text-decoration: none;

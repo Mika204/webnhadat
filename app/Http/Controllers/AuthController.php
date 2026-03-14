@@ -14,7 +14,7 @@ class AuthController extends Controller
             return redirect()->route('home');
         }
 
-        return view('auth.index', ['type' => 'login']);
+        return view('users.index', ['type' => 'login']);
     }
 
     // Xử lý đăng nhập
@@ -46,7 +46,7 @@ class AuthController extends Controller
 
     public function showRegister()
 {
-    return view('auth.index', ['type' => 'register']);
+    return view('users.index', ['type' => 'register']);
 }
 
 public function register(Request $request)
