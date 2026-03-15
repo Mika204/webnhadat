@@ -9,8 +9,8 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $list = BatDongSan::paginate(6);
-        return view('users.home', compact('list'));
+        $batdongsan = Batdongsan::all();
+        return view('users.home', compact('batdongsan'));
     }
 
 }

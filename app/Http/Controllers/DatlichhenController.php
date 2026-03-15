@@ -17,7 +17,7 @@ class DatlichhenController extends Controller
             ->where('iduser', $userId)
             ->get();
 
-        return view('datlichhen.index', compact('lichhens'));
+        return view('admin.datlichhen.index', compact('lichhens'));
     }
 
     // Form đặt lịch hẹn
@@ -45,7 +45,7 @@ class DatlichhenController extends Controller
             'trangThai' => 'chờ xác nhận'
         ]);
 
-        return redirect()->route('datlichhen.index')->with('success', 'Đặt lịch hẹn thành công!');
+        return redirect()->route('admin.datlichhen.index')->with('success', 'Đặt lịch hẹn thành công!');
     }
 
     // Admin xác nhận hoặc hủy lịch hẹn
@@ -60,7 +60,7 @@ class DatlichhenController extends Controller
             'trangThai' => $request->trangThai
         ]);
 
-        return redirect()->route('datlichhen.index')->with('success', 'Cập nhật trạng thái thành công!');
+        return redirect()->route('admin.datlichhen.index')->with('success', 'Cập nhật trạng thái thành công!');
     }
 
     // Xóa lịch hẹn
@@ -69,6 +69,6 @@ class DatlichhenController extends Controller
         $lichhen = Datlichhen::findOrFail($id);
         $lichhen->delete();
 
-        return redirect()->route('datlichhen.index')->with('success', 'Xóa lịch hẹn thành công!');
+        return redirect()->route('admin.datlichhen.index')->with('success', 'Xóa lịch hẹn thành công!');
     }
 }

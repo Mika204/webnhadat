@@ -11,7 +11,7 @@
         <th>Ngày hẹn</th>
         <th>Hành động</th>
     </tr>
-    @foreach($lichhen as $lh)
+    @foreach($lichhens as $lh)
     <tr>
         <td>{{ $lh->id }}</td>
         <td>{{ $lh->user->name }}</td>

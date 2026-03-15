@@ -15,7 +15,6 @@
 </head>
 
 <body class="bg-light d-flex align-items-center justify-content-center vh-100">
-   
     @yield('content')
     <script>
         function toggleView() {

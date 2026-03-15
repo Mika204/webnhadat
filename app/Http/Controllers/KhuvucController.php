@@ -11,13 +11,13 @@ class KhuvucController extends Controller
     public function index()
     {
         $khuvucs = Khuvuc::all();
-        return view('khuvuc.index', compact('khuvucs'));
+        return view('admin.khuvuc.index', compact('khuvucs'));
     }
 
     // Form thêm mới khu vực
     public function create()
     {
-        return view('khuvuc.create');
+        return view('admin.khuvuc.create');
     }
 
     // Lưu khu vực mới
@@ -31,21 +31,21 @@ class KhuvucController extends Controller
             'tenKv' => $request->tenKv
         ]);
 
-        return redirect()->route('khuvuc.index')->with('success', 'Thêm khu vực thành công!');
+        return redirect()->route('admin.khuvuc.index')->with('success', 'Thêm khu vực thành công!');
     }
 
     // Hiển thị chi tiết khu vực
     public function show($id)
     {
         $khuvuc = Khuvuc::findOrFail($id);
-        return view('khuvuc.show', compact('khuvuc'));
+        return view('admin.khuvuc.show', compact('khuvuc'));
     }
 
     // Form chỉnh sửa khu vực
     public function edit($id)
     {
         $khuvuc = Khuvuc::findOrFail($id);
-        return view('khuvuc.edit', compact('khuvuc'));
+        return view('admin.khuvuc.edit', compact('khuvuc'));
     }
 
     // Cập nhật khu vực
@@ -60,7 +60,7 @@ class KhuvucController extends Controller
             'tenKv' => $request->tenKv
         ]);
 
-        return redirect()->route('khuvuc.index')->with('success', 'Cập nhật khu vực thành công!');
+        return redirect()->route('admin.khuvuc.index')->with('success', 'Cập nhật khu vực thành công!');
     }
 
     // Xóa khu vực
@@ -69,6 +69,6 @@ class KhuvucController extends Controller
         $khuvuc = Khuvuc::findOrFail($id);
         $khuvuc->delete();
 
-        return redirect()->route('khuvuc.index')->with('success', 'Xóa khu vực thành công!');
+        return redirect()->route('admin.khuvuc.index')->with('success', 'Xóa khu vực thành công!');
     }
 }

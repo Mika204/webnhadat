@@ -18,4 +18,15 @@ class Admin extends Authenticatable
     protected $hidden = [
         'passwordadmin'
     ];
+    // Laravel Auth sẽ lấy password ở đây
+    public function getAuthPassword()
+    {
+        return $this->passwordadmin;
+    }
+
+    // Laravel Auth sẽ login bằng emailadmin
+    public function getAuthIdentifierName()
+    {
+        return 'emailadmin';
+    }
 }

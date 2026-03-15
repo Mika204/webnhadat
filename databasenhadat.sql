@@ -103,3 +103,13 @@ MODIFY sdt VARCHAR(20) DEFAULT NULL;
 ALTER TABLE users 
 ADD created_at TIMESTAMP NULL,
 ADD updated_at TIMESTAMP NULL;
+
+ALTER TABLE batdongsan
+ADD COLUMN iduser INT  NULL;
+
+ALTER TABLE batdongsan
+ADD CONSTRAINT fk_bds_user
+FOREIGN KEY (iduser) REFERENCES users(iduser);
+
+ALTER TABLE batdongsan
+MODIFY iduser INT NULL;

@@ -13,14 +13,14 @@ class BatdongsanController extends Controller
     public function index()
     {
         $batdongsans = Batdongsan::with('khuvuc', 'hinhanhs')->get();
-        return view('batdongsan.index', compact('batdongsans'));
+        return view('admin.batdongsan.index', compact('batdongsans'));
     }
 
     // Form thêm mới bất động sản
     public function create()
     {
         $khuvucs = Khuvuc::all();
-        return view('batdongsan.create', compact('khuvucs'));
+        return view('admin.batdongsan.create', compact('khuvucs'));
     }
 
     // Lưu bất động sản mới
@@ -38,7 +38,8 @@ class BatdongsanController extends Controller
             'tenBds' => $request->tenBds,
             'gia' => $request->gia,
             'moTa' => $request->moTa,
-            'idKv' => $request->idKv
+            'idKv' => $request->idKv,
+            'iduser' => Auth::id()
         ]);
 
         // Lưu hình ảnh
@@ -52,7 +53,7 @@ class BatdongsanController extends Controller
             }
         }
 
-        return redirect()->route('batdongsan.index')->with('success', 'Thêm bất động sản thành công!');
+        return redirect()->route('admin.batdongsan.index')->with('success', 'Thêm bất động sản thành công!');
     }
 
     // Hiển thị chi tiết bất động sản
@@ -67,7 +68,7 @@ class BatdongsanController extends Controller
     {
         $bds = Batdongsan::findOrFail($id);
         $khuvucs = Khuvuc::all();
-        return view('batdongsan.edit', compact('bds', 'khuvucs'));
+        return view('admin.batdongsan.edit', compact('bds', 'khuvucs'));
     }
 
     // Cập nhật bất động sản
@@ -100,7 +101,7 @@ class BatdongsanController extends Controller
             }
         }
 
-        return redirect()->route('batdongsan.index')->with('success', 'Cập nhật bất động sản thành công!');
+        return redirect()->route('admin.batdongsan.index')->with('success', 'Cập nhật bất động sản thành công!');
     }
 
     // Xóa bất động sản
@@ -110,6 +111,6 @@ class BatdongsanController extends Controller
         $bds->hinhanhs()->delete(); // Xóa hình ảnh liên quan
         $bds->delete();
 
-        return redirect()->route('batdongsan.index')->with('success', 'Xóa bất động sản thành công!');
+        return redirect()->route('admin.batdongsan.index')->with('success', 'Xóa bất động sản thành công!');
     }
 }

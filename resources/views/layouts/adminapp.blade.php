@@ -42,7 +42,7 @@
                     <a class="nav-link" href="{{ route('admin.batdongsan.index') }}">Quản lý BĐS</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.nguoidung.index') }}">Quản lý Người dùng</a>
+                    <a class="nav-link" href="{{ route('admin.user.index') }}">Quản lý Người dùng</a>
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('admin.datlichhen.index') }}">Quản lý Lịch hẹn</a>

@@ -15,7 +15,7 @@ class GiohangController extends Controller
         $userId = Auth::id(); // lấy id user đang đăng nhập
         $giohang = Giohang::with('batdongsan')->where('iduser', $userId)->get();
 
-        return view('giohang.index', compact('giohang'));
+        return view('users.giohang.index', compact('giohang'));
     }
 
     // Thêm bất động sản vào giỏ hàng

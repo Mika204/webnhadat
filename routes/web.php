@@ -40,6 +40,7 @@ Route::post('/register', [AuthController::class, 'register'])->name('register.po
 // admin
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminAuthController;
+use App\Http\Controllers\AdminUserController;
 
 Route::prefix('admin')->name('admin.')->group(function(){
 
@@ -49,7 +50,6 @@ Route::prefix('admin')->name('admin.')->group(function(){
 
     // dashboard
     Route::get('/dashboard',[AdminAuthController::class,'dashboard'])
-        ->middleware('auth:admin')
         ->name('dashboard');
 
     // logout
@@ -57,19 +57,18 @@ Route::prefix('admin')->name('admin.')->group(function(){
 
     // CRUD admin
     Route::resource('batdongsan', BatdongsanController::class);
-    Route::resource('nguoidung', AuthController::class);
+    Route::resource('user', AdminUserController::class);
+    Route::get('/admin/duyet-bai/{id}', [AdminUserController::class, 'duyetBai'])->name('duyet.bai');    
     Route::resource('datlichhen', DatlichhenController::class);
     Route::resource('khuvuc', KhuvucController::class);
 });
 
-// Quản lý khu vực
-Route::resource('khuvuc', KhuvucController::class);
 
-//  Quản lý bất động sản + hình ảnh
-Route::resource('batdongsan', BatdongsanController::class);
 
 //  Giỏ hàng
-Route::get('/giohang', [GiohangController::class, 'index'])->name('giohang.index');
+Route::get('/giohang', [GiohangController::class, 'index'])
+    ->middleware('auth')
+    ->name('giohang.index');
 Route::post('/giohang/add/{id}', [GiohangController::class, 'add'])->name('giohang.add');
 Route::delete('/giohang/remove/{id}', [GiohangController::class, 'remove'])->name('giohang.remove');
 
@@ -79,3 +78,17 @@ Route::get('/datlichhen/create/{idbds}', [DatlichhenController::class, 'create']
 Route::post('/datlichhen/store/{idbds}', [DatlichhenController::class, 'store'])->name('datlichhen.store'); // hoặc bỏ {idbds} nếu lấy từ form
 Route::put('/datlichhen/update/{id}', [DatlichhenController::class, 'update'])->name('datlichhen.update');
 Route::delete('/datlichhen/destroy/{id}', [DatlichhenController::class, 'destroy'])->name('datlichhen.destroy');
+
+use App\Http\Controllers\ProfileController;
+
+Route::get('/profile', [ProfileController::class,'index'])
+    ->middleware('auth')
+    ->name('profile.index');
+
+Route::post('/profile/update', [ProfileController::class,'update'])
+    ->middleware('auth')
+    ->name('profile.update');
+
+    
+
+

@@ -11,12 +11,12 @@
         <th>Tên khu vực</th>
         <th>Hành động</th>
     </tr>
-    @foreach($khuvuc as $kv)
+    @foreach($khuvucs as $kv)
     <tr>
         <td>{{ $kv->id }}</td>
         <td>{{ $kv->tenKv }}</td>
         <td>
-            <form action="{{ route('admin.khuvuc.destroy', $kv->id) }}" method="POST" style="display:inline;">
+            <form action="{{ route('admin.khuvuc.destroy', $kv->idKv) }}" method="POST" style="display:inline;">
                 @csrf
                 @method('DELETE')
                 <button type="submit">Xóa</button>

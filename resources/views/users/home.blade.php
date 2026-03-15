@@ -5,6 +5,22 @@
 @section('content')
 
 <!-- Header -->
+    <!-- Categories + Filter Bar -->
+    <nav class="category-bar">
+        <div class="category-tabs">
+            <a href="#" class="category-link active">Tất cả</a>
+        </div>
+
+        <div class="filter-group">
+            <div class="filter-dropdown">
+                <button class="filter-btn">
+                    <iconify-icon icon="solar:map-point-linear"></iconify-icon>
+                    Khu vực
+                    <iconify-icon icon="solar:alt-arrow-down-linear"></iconify-icon>
+                </button>
+            </div>
+        </div>
+    </nav>
     <section class="hero-section">
         <div class="container text-center py-5">
             <h1 class="hero-title text-center">

@@ -12,20 +12,24 @@
         <th>Giá</th>
         <th>Hành động</th>
     </tr>
-    @foreach($batdongsan as $bds)
+
+    @foreach($batdongsans as $bds)
     <tr>
-        <td>{{ $bds->id }}</td>
+        <td>{{ $bds->idbds }}</td>
         <td>{{ $bds->tenBds }}</td>
         <td>{{ number_format($bds->gia) }} VND</td>
         <td>
-            <a href="{{ route('admin.batdongsan.edit', $bds->id) }}">Sửa</a>
-            <form action="{{ route('admin.batdongsan.destroy', $bds->id) }}" method="POST" style="display:inline;">
+            <a href="{{ route('admin.batdongsan.edit', $bds->idbds) }}">Sửa</a>
+
+            <form action="{{ route('admin.batdongsan.destroy', $bds->idbds) }}" method="POST" style="display:inline;">
                 @csrf
                 @method('DELETE')
                 <button type="submit">Xóa</button>
             </form>
+
         </td>
     </tr>
     @endforeach
+
 </table>
 @endsection

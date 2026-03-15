@@ -83,7 +83,7 @@
                  </div>
                  <div class="mb-3">
                     <label class="form-label small fw-semibold">SĐT</label>
-                    <input type="sdt" name="sdt" class="form-control">               
+                    <input type="text" name="sdt" class="form-control">               
                  </div>
                 <button type="submit" class="btn btn-dark w-100">
                     Đăng ký
