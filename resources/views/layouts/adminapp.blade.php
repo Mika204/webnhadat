@@ -50,6 +50,9 @@
                 <li class="nav-item">
                     <a href="{{ route('admin.khuvuc.index') }}">Quản lý Khu vực</a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.doanhthu.index') }}">Quản lý Doanh thu</a>
+                </li>
             </ul>
         </nav>
 

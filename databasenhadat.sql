@@ -113,3 +113,23 @@ FOREIGN KEY (iduser) REFERENCES users(iduser);
 
 ALTER TABLE batdongsan
 MODIFY iduser INT NULL;
+
+ALTER TABLE batdongsan 
+ADD trangThai ENUM('chờ duyệt','đã duyệt','đã cọc') 
+DEFAULT 'chờ duyệt';
+
+ALTER TABLE batdongsan 
+MODIFY trangThai ENUM('chờ duyệt','đã duyệt','từ chối')
+DEFAULT 'chờ duyệt';
+
+UPDATE batdongsan
+SET iduser = 2
+WHERE iduser IS NULL;
+
+ALTER TABLE datlichhen 
+MODIFY trangThai ENUM('chờ xác nhận', 'đã xác nhận','đã cọc', 'huỷ');
+
+
+ALTER TABLE datlichhen CHANGE iduser id_nguoi_mua INT NOT NULL;
+
+SELECT * FROM giohang;

@@ -14,14 +14,16 @@
 
     @foreach($user as $user)
     <tr>
-        <td>{{ $user->id }}</td>
-        <td>{{ $user->name }}</td>
+        <td>{{ $user->iduser }}</td>
+        <td>{{ $user->hoten }}</td>
         <td>{{ $user->email }}</td>
         <td>
             <form action="{{ route('admin.user.destroy', $user->iduser) }}" method="POST" style="display:inline;">
                 @csrf
                 @method('DELETE')
-                <button type="submit">Xóa</button>
+                <button type="submit" onclick="return confirm('Bạn có chắc muốn xoá người dùng này?')">
+                    Xóa
+                </button>
             </form>
         </td>
     </tr>
@@ -38,7 +40,7 @@
         <th>ID</th>
         <th>Tên BDS</th>
         <th>Giá</th>
-        <th>Duyệt</th>
+        <th>Trạng thái</th>
     </tr>
 
     @foreach($bdsChoDuyet as $bds)
@@ -50,6 +52,9 @@
         <td>
             <a href="{{ route('admin.duyet.bai', $bds->idbds) }}">
                 Duyệt
+            </a>
+            <a href="{{ route('admin.tu.choi.bai', $bds->idbds) }}">
+                Từ chối
             </a>
         </td>
     </tr>

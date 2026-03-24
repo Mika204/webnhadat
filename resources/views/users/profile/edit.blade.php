@@ -1,10 +1,10 @@
-@extends('layouts.adminapp')
+@extends('layouts.app')
 
 @section('content')
 
-<h2>Sửa bất động sản</h2>
+<h2> Sửa bất động sản</h2>
 
-<form method="POST" action="{{ route('admin.batdongsan.update', $bds->idbds) }}" enctype="multipart/form-data">
+<form method="POST" action="{{ route('batdongsan.update', $bds->idbds) }}" enctype="multipart/form-data">
     @csrf
     @method('PUT')
 
@@ -40,7 +40,7 @@
         <br>
 
         @foreach($bds->hinhanhs as $img)
-            <img src="{{ asset('storage/'.$img->duong_dan_anh) }}" width="120">
+            <img src="{{ asset('storage/' . $img->duong_dan_anh) }}" width="120">
         @endforeach
     </div>
 
@@ -50,9 +50,10 @@
     </div>
 
     <button type="submit">Cập nhật</button>
-
 </form>
 
-<a href="{{ route('admin.batdongsan.index') }}">← Quay lại</a>
+<br>
+
+<a href="{{ route('profile.index') }}">← Quay lại</a>
 
 @endsection

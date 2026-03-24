@@ -16,10 +16,15 @@
         <td>{{ $kv->id }}</td>
         <td>{{ $kv->tenKv }}</td>
         <td>
+            <a href="{{ route('admin.khuvuc.edit',$kv->idKv) }}">
+                Sửa
+            </a>
             <form action="{{ route('admin.khuvuc.destroy', $kv->idKv) }}" method="POST" style="display:inline;">
                 @csrf
                 @method('DELETE')
-                <button type="submit">Xóa</button>
+                <button type="submit" onclick="return confirm('Bạn có chắc muốn xoá?')">
+                    Xóa
+                </button>
             </form>
         </td>
     </tr>

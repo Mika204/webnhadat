@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\DatLichHen;
 
+use App\Models\DatLichHen;
+use App\Models\Batdongsan;
+use App\Models\Khuvuc;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -12,9 +14,23 @@ class ProfileController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $datlichhen = DatLichHen::where('iduser', $user->iduser)->get();
 
-        return view('users.profile.index', compact('user','datlichhen'));
+        // lịch hẹn
+        $datlichhen = DatLichHen::where('id_nguoi_mua', $user->iduser)->get();
+
+        $posts = Batdongsan::with(['hinhanhs','khuvuc'])
+            ->where('iduser', $user->iduser)
+            ->orderBy('idbds','desc')
+            ->get();
+
+        $khuvucs = Khuvuc::all();
+
+        return view('users.profile.index', compact(
+            'user',
+            'datlichhen',
+            'posts',
+            'khuvucs'
+        ));
     }
 
     public function update(Request $request)

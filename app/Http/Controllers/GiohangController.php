@@ -21,6 +21,10 @@ class GiohangController extends Controller
     // Thêm bất động sản vào giỏ hàng
     public function add($idbds)
     {
+        if (!Auth::check()) {
+            return redirect()->route('login')
+                ->with('error', 'Bạn cần đăng nhập để thêm vào giỏ hàng!');
+        }
         $userId = Auth::id();
 
         // kiểm tra nếu đã có trong giỏ thì không thêm nữa
@@ -41,9 +45,22 @@ class GiohangController extends Controller
     public function remove($idbds)
     {
         $userId = Auth::id();
-        $giohang = Giohang::where('iduser', $userId)->where('idbds', $idbds)->firstOrFail();
-        $giohang->delete();
 
-        return redirect()->route('giohang.index')->with('success', 'Đã xóa khỏi giỏ hàng!');
+        Giohang::where('iduser', $userId)
+            ->where('idbds', $idbds)
+            ->delete();
+
+        return redirect()->route('giohang.index')
+            ->with('success', 'Đã xóa khỏi giỏ hàng!');
     }
+    public function clear()
+    {
+        $userId = Auth::id();
+
+        // Xóa tất cả sản phẩm của user trong giỏ
+        Giohang::where('iduser', $userId)->delete();
+
+        return redirect()->route('giohang.index')->with('success', 'Đã xóa toàn bộ giỏ hàng!');
+    }
+
 }

@@ -14,11 +14,26 @@ class Datlichhen extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'iduser', 'idbds', 'ngayDat', 'tienCoc', 'trangThai', 'pttt'
+        'id_nguoi_mua',
+        'idbds',
+        'ngayDat',
+        'tienCoc',
+        'pttt',
+        'trangThai'
     ];
+
+    public function nguoiMua()
+    {
+        return $this->belongsTo(User::class, 'id_nguoi_mua');
+    }
+
+    public function nguoiBan()
+    {
+        return $this->belongsTo(User::class, 'iduser');
+    }
 
     public function batdongsan()
     {
-        return $this->belongsTo(Batdongsan::class, 'idbds');
+        return $this->belongsTo(Batdongsan::class, 'idbds', 'idbds');
     }
 }

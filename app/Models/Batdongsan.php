@@ -17,7 +17,9 @@ class BatDongSan extends Model
         'tenBds',
         'gia',
         'moTa',
-        'idKv'
+        'idKv',
+        'iduser',
+        'trangThai'
     ];
     
     public function user()
@@ -33,4 +35,5 @@ class BatDongSan extends Model
     {   
         return $this->hasMany(HinhAnh::class, 'idbds', 'idbds');
     }
+    
 }

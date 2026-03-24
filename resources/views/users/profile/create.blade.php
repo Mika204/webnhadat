@@ -1,9 +1,10 @@
-@extends('layouts.adminapp')
+@extends('layouts.app')
 
 @section('content')
-<h2>Thêm bất động sản mới</h2>
 
-<form method="POST" action="{{ route('admin.batdongsan.store') }}" enctype="multipart/form-data">
+<h2>Đăng tin bất động sản</h2>
+
+<form method="POST" action="{{ route('batdongsan.store') }}" enctype="multipart/form-data">
     @csrf
 
     <div>
@@ -35,7 +36,9 @@
         <input type="file" name="hinhanh[]" multiple>
     </div>
 
-    <button type="submit">Thêm mới</button>
-</form>
+    <br>
 
+    <button type="submit">Đăng tin</button>
+</form>
+<a href="{{ route('profile.index') }}">← Quay lại</a>
 @endsection

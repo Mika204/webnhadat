@@ -26,7 +26,7 @@
           <button onclick="switchTab('deposits')" id="nav-deposits"
             class="btn btn-outline-secondary text-start d-flex align-items-center gap-2">
             <iconify-icon icon="solar:wallet-money-linear"></iconify-icon>
-            Lịch sử đặt cọc nhà
+            Lịch sử đặt lịch hẹn
           </button>
   
           <button onclick="switchTab('posts')" id="nav-posts"
@@ -50,7 +50,6 @@
       </aside>
   
   
-      <!-- NỘI DUNG BÊN PHẢI -->
     <div class="col-md-10 mt-3 mt-md-0">
 
         <!-- TAB ACCOUNT -->
@@ -72,17 +71,22 @@
 </div>
 <script>
 
-    function switchTab(tab){
-    
-        // ẩn tất cả tab
-        document.querySelectorAll('.tab-content').forEach(function(el){
-            el.classList.remove('active');
-        });
-    
-        // hiện tab được chọn
-        document.getElementById(tab).classList.add('active');
-    
-    }
+  function switchTab(tab){
+
+    document.querySelectorAll('.tab-content').forEach(el=>{
+        el.classList.remove('active');
+    });
+
+    document.getElementById(tab).classList.add('active');
+
+    document.querySelectorAll('nav button').forEach(btn=>{
+        btn.classList.remove('btn-light');
+        btn.classList.add('btn-outline-secondary');
+    });
+
+    document.getElementById('nav-' + tab).classList.add('btn-light');
+  }
+
     
 </script>
     

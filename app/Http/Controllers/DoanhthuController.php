@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class DoanhthuController extends Controller
 {
-    // Hiển thị báo cáo doanh thu tổng hợp
+    // Hiển thị báo cáo doanh thu
     public function index()
     {
         // Tổng doanh thu từ các lịch hẹn đã xác nhận
@@ -25,14 +25,6 @@ class DoanhthuController extends Controller
             ->orderBy('thang')
             ->get();
 
-        // Doanh thu theo khu vực
-        $doanhThuTheoKhuvuc = Datlichhen::join('batdongsan', 'datlichhen.idbds', '=', 'batdongsan.idbds')
-            ->join('khuvuc', 'batdongsan.idKv', '=', 'khuvuc.idKv')
-            ->select('khuvuc.tenKv', DB::raw('SUM(datlichhen.tienCoc) as tong'))
-            ->where('datlichhen.trangThai', 'đã xác nhận')
-            ->groupBy('khuvuc.tenKv')
-            ->get();
-
-        return view('doanhthu.index', compact('tongDoanhThu', 'doanhThuTheoThang', 'doanhThuTheoKhuvuc'));
+        return view('admin.doanhthu.index', compact('tongDoanhThu', 'doanhThuTheoThang'));
     }
 }

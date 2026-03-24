@@ -16,12 +16,6 @@ class BatdongsanController extends Controller
         return view('admin.batdongsan.index', compact('batdongsans'));
     }
 
-    // Form thêm mới bất động sản
-    public function create()
-    {
-        $khuvucs = Khuvuc::all();
-        return view('admin.batdongsan.create', compact('khuvucs'));
-    }
 
     // Lưu bất động sản mới
     public function store(Request $request)
@@ -63,46 +57,6 @@ class BatdongsanController extends Controller
         return view('batdongsan.show', compact('bds'));
     }
 
-    // Form chỉnh sửa bất động sản
-    public function edit($id)
-    {
-        $bds = Batdongsan::findOrFail($id);
-        $khuvucs = Khuvuc::all();
-        return view('admin.batdongsan.edit', compact('bds', 'khuvucs'));
-    }
-
-    // Cập nhật bất động sản
-    public function update(Request $request, $id)
-    {
-        $request->validate([
-            'tenBds' => 'required|string|max:255',
-            'gia' => 'required|numeric',
-            'moTa' => 'nullable|string',
-            'idKv' => 'required|exists:khuvuc,idKv',
-            'hinhanh.*' => 'image|mimes:jpg,jpeg,png|max:2048'
-        ]);
-
-        $bds = Batdongsan::findOrFail($id);
-        $bds->update([
-            'tenBds' => $request->tenBds,
-            'gia' => $request->gia,
-            'moTa' => $request->moTa,
-            'idKv' => $request->idKv
-        ]);
-
-        // Cập nhật hình ảnh mới (nếu có)
-        if ($request->hasFile('hinhanh')) {
-            foreach ($request->file('hinhanh') as $file) {
-                $path = $file->store('uploads', 'public');
-                Hinhanh::create([
-                    'idbds' => $bds->idbds,
-                    'duong_dan_anh' => $path
-                ]);
-            }
-        }
-
-        return redirect()->route('admin.batdongsan.index')->with('success', 'Cập nhật bất động sản thành công!');
-    }
 
     // Xóa bất động sản
     public function destroy($id)

@@ -416,3 +416,39 @@ aside{
     min-height: calc(100vh - 100px);
 }
 
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background: white;
+    border: 1px solid #ddd;
+    width: 200px;
+}
+
+.dropdown-menu a{
+    display:block;
+    padding:10px;
+    text-decoration:none;
+    color:black;
+}
+
+.dropdown-menu a:hover{
+    background:#f2f2f2;
+}
+
+.show{
+    display:block;
+}
+
+.product-image img:hover {
+    opacity: 0.9;
+}
+
+.product-image img[onclick]:hover {
+    transform: scale(1.05);
+    border: 2px solid #007bff;
+}
+

@@ -12,7 +12,7 @@ class AdminUserController extends Controller
     public function index()
     {
         $user = User::all();
-        $bdsChoDuyet = Batdongsan::whereNotNull('iduser')->get();
+        $bdsChoDuyet = Batdongsan::where('trangThai','chờ duyệt')->get();
 
         return view('admin.user.index', compact('user','bdsChoDuyet'));
     }
@@ -24,15 +24,21 @@ class AdminUserController extends Controller
     }
 
     public function duyetBai($id)
-{
-    $approved = Session::get('approved_bds', []);
+    {
+        $bds = Batdongsan::findOrFail($id);
 
-    if (!in_array($id, $approved)) {
-        $approved[] = $id;
+        $bds->trangThai = 'đã duyệt';
+        $bds->save();
+
+        return back()->with('success', 'Đã duyệt bài!');
+    }
+    public function tuChoiBai($id)
+    {
+        $bds = Batdongsan::findOrFail($id);
+        $bds->trangThai = 'từ chối';
+        $bds->save();
+
+        return back()->with('error','Đã từ chối!');
     }
 
-    Session::put('approved_bds', $approved);
-
-    return back()->with('success', 'Đã duyệt bài!');
-}
 }

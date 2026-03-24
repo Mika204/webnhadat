@@ -6,19 +6,16 @@
     
         <title>@yield('title', 'EstateX')</title>
     
-        <!-- Bootstrap 5 CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     
-        <!-- Google Font -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     
-        <!-- Custom CSS -->
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     </head>
     
-<body>
+<body style="min-height:100vh; display:flex; flex-direction:column;">
     <!-- HEADER -->
     <header class="site-header fixed-top">
         <div class="container-xl">
@@ -34,14 +31,18 @@
     
                 <!-- Search -->
                 <div class="header-search">
+                    <form action="{{ route('batdongsan.search') }}" method="GET">
                     <div class="search-wrapper">
-                        <iconify-icon icon="solar:magnifer-linear" class="search-icon"></iconify-icon>
-                        <input type="text" class="form-control search-input"
-                            placeholder="Tìm kiếm khu vực, tên đường,...">
+                    <iconify-icon icon="solar:magnifer-linear" class="search-icon"></iconify-icon>
+                    <input type="text"
+                           name="q"
+                           class="form-control search-input"
+                           placeholder="Tìm kiếm khu vực, tên đường,..."
+                           value="{{ request('q') }}">
+                    
                     </div>
-                </div>
-    
-                <!-- Desktop Actions -->
+                    </form>
+                    </div>
                 <div class="header-actions">
 
                     @auth
@@ -72,7 +73,6 @@
                     @endauth
                 
                 </div>
-                <!-- Mobile Buttons -->
                 <div class="mobile-actions">
                     <button type="button" class="icon-btn">
                         <iconify-icon icon="solar:magnifer-linear"></iconify-icon>
