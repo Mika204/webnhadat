@@ -17,16 +17,6 @@ class BatdongsanController extends Controller
     }
 
 
-    
-
-    // Hiển thị chi tiết bất động sản
-    public function show($id)
-    {
-        $bds = Batdongsan::with('khuvuc', 'hinhanhs')->findOrFail($id);
-        return view('batdongsan.show', compact('bds'));
-    }
-
-
     // Xóa bất động sản
     public function destroy($id)
     {
