@@ -17,38 +17,7 @@ class BatdongsanController extends Controller
     }
 
 
-    // Lưu bất động sản mới
-    public function store(Request $request)
-    {
-        $request->validate([
-            'tenBds' => 'required|string|max:255',
-            'gia' => 'required|numeric',
-            'moTa' => 'nullable|string',
-            'idKv' => 'required|exists:khuvuc,idKv',
-            'hinhanh.*' => 'image|mimes:jpg,jpeg,png|max:2048'
-        ]);
-
-        $bds = Batdongsan::create([
-            'tenBds' => $request->tenBds,
-            'gia' => $request->gia,
-            'moTa' => $request->moTa,
-            'idKv' => $request->idKv,
-            'iduser' => Auth::id()
-        ]);
-
-        // Lưu hình ảnh
-        if ($request->hasFile('hinhanh')) {
-            foreach ($request->file('hinhanh') as $file) {
-                $path = $file->store('uploads', 'public');
-                Hinhanh::create([
-                    'idbds' => $bds->idbds,
-                    'duong_dan_anh' => $path
-                ]);
-            }
-        }
-
-        return redirect()->route('admin.batdongsan.index')->with('success', 'Thêm bất động sản thành công!');
-    }
+    
 
     // Hiển thị chi tiết bất động sản
     public function show($id)

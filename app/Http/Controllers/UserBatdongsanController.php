@@ -36,6 +36,7 @@ class UserBatdongsanController extends Controller
         $khuvucs = Khuvuc::all();
         return view('users.profile.create', compact('khuvucs'));
     }
+    // Lưu bất động sản mới
     public function store(Request $request)
     {
         $request->validate([
@@ -54,6 +55,7 @@ class UserBatdongsanController extends Controller
             'iduser' => Auth::id(),
             'trangThai' => 'chờ duyệt'
         ]);
+        // Lưu hình ảnh
         if ($request->hasFile('hinhanh')) {
             foreach ($request->file('hinhanh') as $file) {
                 $path = $file->store('uploads', 'public');
