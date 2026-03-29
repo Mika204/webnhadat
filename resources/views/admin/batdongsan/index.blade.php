@@ -12,7 +12,7 @@
         <th>Hành động</th>
     </tr>
 
-    @foreach($batdongsans as $bds)
+    @forelse($batdongsans as $bds)
     <tr>
         <td>{{ $bds->idbds }}</td>
         <td>{{ $bds->tenBds }}</td>
@@ -25,10 +25,15 @@
                     Xóa
                 </button>
             </form>
-
         </td>
     </tr>
-    @endforeach
+    @empty
+    <tr>
+        <td colspan="4" style="text-align:center;">
+            Không có bất động sản nào
+        </td>
+    </tr>
+    @endforelse
 
 </table>
 @endsection
