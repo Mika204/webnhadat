@@ -29,7 +29,11 @@
             @endforeach
         </select>
     </div>
+    <div>
+        <label>Địa chỉ</label>
+        <input type="text" name="diaChi" class="form-control" value="{{ $bds->diaChi }}">
 
+    </div>
     <div>
         <label>Mô tả:</label>
         <textarea name="moTa">{{ $bds->moTa }}</textarea>

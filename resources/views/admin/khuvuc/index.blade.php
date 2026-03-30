@@ -11,14 +11,16 @@
         <th>Tên khu vực</th>
         <th>Hành động</th>
     </tr>
-    @foreach($khuvucs as $kv)
+
+    @forelse($khuvucs as $kv)
     <tr>
-        <td>{{ $kv->id }}</td>
+        <td>{{ $kv->idKv }}</td>
         <td>{{ $kv->tenKv }}</td>
         <td>
             <a href="{{ route('admin.khuvuc.edit',$kv->idKv) }}">
                 Sửa
             </a>
+
             <form action="{{ route('admin.khuvuc.destroy', $kv->idKv) }}" method="POST" style="display:inline;">
                 @csrf
                 @method('DELETE')
@@ -28,11 +30,15 @@
             </form>
         </td>
     </tr>
+
+    @empty
     <tr>
-        <td colspan="4" style="text-align:center;">
+        <td colspan="3" style="text-align:center; color:gray;">
             Không có khu vực nào
         </td>
     </tr>
-    @endforeach
+
+    @endforelse
+
 </table>
 @endsection

@@ -42,6 +42,7 @@ class UserBatdongsanController extends Controller
         $request->validate([
             'tenBds' => 'required|string|max:255',
             'gia' => 'required|numeric',
+            'diaChi' => 'required|string|max:255',
             'moTa' => 'nullable|string',
             'idKv' => 'required|exists:khuvuc,idKv',
             'hinhanh.*' => 'image|mimes:jpg,jpeg,png|max:2048'
@@ -50,6 +51,7 @@ class UserBatdongsanController extends Controller
         $bds = Batdongsan::create([
             'tenBds' => $request->tenBds,
             'gia' => $request->gia,
+            'diaChi' => $request->diaChi,
             'moTa' => $request->moTa,
             'idKv' => $request->idKv,
             'iduser' => Auth::id(),
@@ -82,6 +84,7 @@ class UserBatdongsanController extends Controller
         $request->validate([
             'tenBds' => 'required|string|max:255',
             'gia' => 'required|numeric',
+            'diaChi' => 'required|string|max:255',
             'moTa' => 'nullable|string',
             'idKv' => 'required|exists:khuvuc,idKv',
             'hinhanh.*' => 'image|mimes:jpg,jpeg,png|max:2048'
@@ -91,6 +94,7 @@ class UserBatdongsanController extends Controller
         $bds->update([
             'tenBds' => $request->tenBds,
             'gia' => $request->gia,
+            'diaChi' => $request->diaChi,
             'moTa' => $request->moTa,
             'idKv' => $request->idKv
         ]);

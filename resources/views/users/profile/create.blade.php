@@ -27,6 +27,11 @@
     </div>
 
     <div>
+        <label>Địa chỉ</label>
+        <input type="text" name="diaChi" class="form-control">
+    </div>
+
+    <div>
         <label for="moTa">Mô tả:</label>
         <textarea id="moTa" name="moTa"></textarea>
     </div>

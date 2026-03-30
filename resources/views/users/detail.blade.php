@@ -37,6 +37,10 @@
             <strong>Khu vực:</strong> 
             {{ $bds->khuvuc->tenKv ?? 'Không xác định' }}
         </p>
+        <p>
+            <strong>Địa chỉ:</strong> 
+            {{ $bds->diaChi ?? 'Không xác định' }}
+        </p>
 
         <p>
             <strong>Mô tả:</strong><br>

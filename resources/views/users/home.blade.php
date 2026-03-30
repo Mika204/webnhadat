@@ -55,7 +55,7 @@
 $idSp = $sp->idbds;
 $tenSp = $sp->tenBds;
 $gia = number_format($sp->gia,0,',','.');
-$moTa = $sp->moTa;
+$khuvuc = $sp->khuvuc->tenKv ?? 'Không xác định';
 @endphp
 
 <div class="col-md-4 mb-4">
@@ -82,7 +82,7 @@ $moTa = $sp->moTa;
                 <div class="bds-footer">
                     <div class="bds-location">
                         <iconify-icon icon="solar:map-point-linear"></iconify-icon>
-                        {{ $moTa }}
+                        {{ $khuvuc }}
                     </div>
                 </div>
             </div>

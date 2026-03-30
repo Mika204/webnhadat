@@ -133,3 +133,6 @@ MODIFY trangThai ENUM('chờ xác nhận', 'đã xác nhận','đã cọc', 'hu�
 ALTER TABLE datlichhen CHANGE iduser id_nguoi_mua INT NOT NULL;
 
 SELECT * FROM giohang;
+
+ALTER TABLE batdongsan
+ADD diaChi VARCHAR(255) AFTER gia;

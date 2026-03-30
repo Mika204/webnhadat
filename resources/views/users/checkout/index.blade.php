@@ -21,7 +21,7 @@
         @foreach($giohang as $item)
             <li>
                 <strong>{{ $item->batdongsan->tenBDS }}</strong> <br>
-                Hẹn gặp quý khách ở: {{ $item->batdongsan->moTa }} <br>
+                Hẹn gặp quý khách ở: {{ $item->batdongsan->diaChi }} <br>
                 Tiền cọc: {{ number_format($item->batdongsan->gia * 0.05, 0, ',', '.') }} VND
             </li>
             <hr>

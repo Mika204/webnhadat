@@ -16,6 +16,7 @@ class BatDongSan extends Model
     protected $fillable = [
         'tenBds',
         'gia',
+        'diaChi',
         'moTa',
         'idKv',
         'iduser',

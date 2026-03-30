@@ -15,7 +15,7 @@
         <th>Hành động</th>
     </tr>
 
-    @foreach($lichhens as $lh)
+    @forelse($lichhens as $lh)
     <tr>
         <td>{{ $lh->id_dat_lich_hen }}</td>
 
@@ -70,7 +70,13 @@
 
         </td>
     </tr>
-    @endforeach
+    @empty
+    <tr>
+        <td colspan="8" style="text-align:center; color:gray;">
+            Không có lịch hẹn nào
+        </td>
+    </tr>
+    @endforelse
 </table>
 
 @endsection
