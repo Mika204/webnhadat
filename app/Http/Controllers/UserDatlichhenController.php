@@ -28,9 +28,10 @@ class UserDatlichhenController extends Controller
         $lichhen = Datlichhen::where('id_nguoi_mua', Auth::id()) 
             ->findOrFail($id);
 
-        $lichhen->delete();
-
-        return redirect()->route('datlichhen.destroy') 
+            $lichhen->update([
+                'trangThai' => 'huỷ'
+            ]);
+        return redirect()->route('users.profile.deposits') 
             ->with('success', 'Hủy lịch hẹn thành công!');
     }
 }

@@ -28,6 +28,11 @@
             </form>
         </td>
     </tr>
+    <tr>
+        <td colspan="4" style="text-align:center;">
+            Không có khu vực nào
+        </td>
+    </tr>
     @endforeach
 </table>
 @endsection
