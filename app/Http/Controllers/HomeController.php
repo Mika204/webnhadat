@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Batdongsan;
 use App\Models\Khuvuc;
+use Illuminate\Support\Facades\DB;
+
 
 class HomeController extends Controller
 {
@@ -37,5 +39,24 @@ class HomeController extends Controller
             ->findOrFail($id);
 
         return view('users.detail', compact('bds'));
+    }
+    public function search(Request $request)
+    {
+        $keyword = strtolower(trim($request->q));
+
+        $batdongsans = collect();
+
+        if ($keyword != '') {
+
+            $batdongsans = Batdongsan::join('khuvuc','batdongsan.idKv','=','khuvuc.idKv')
+                ->where(function($query) use ($keyword){
+                    $query->where(DB::raw('LOWER(tenBds)'), 'LIKE', "%$keyword%")
+                          ->orWhere(DB::raw('LOWER(tenKv)'), 'LIKE', "%$keyword%");
+                })
+                ->select('batdongsan.*','khuvuc.tenKv')
+                ->get();
+        }
+
+        return view('users.search', compact('batdongsans','keyword'));
     }
 }

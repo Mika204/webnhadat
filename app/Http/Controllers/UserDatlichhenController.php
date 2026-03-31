@@ -31,7 +31,7 @@ class UserDatlichhenController extends Controller
             $lichhen->update([
                 'trangThai' => 'huỷ'
             ]);
-        return redirect()->route('users.profile.deposits') 
+        return redirect()->route('datlichhen.destroy') 
             ->with('success', 'Hủy lịch hẹn thành công!');
     }
 }

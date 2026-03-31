@@ -34,7 +34,7 @@
                     onsubmit="return confirm('Xóa bất động sản này khỏi giỏ hàng?');">
                 @csrf
                 @method('DELETE')
-                <button type="submit" class="clear-cart">× Xóa</button>
+                <button type="submit" class="clear-cart"> Xóa</button>
               </form>
             </td>
           </tr>

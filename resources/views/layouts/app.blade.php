@@ -37,7 +37,7 @@
                     <input type="text"
                            name="q"
                            class="form-control search-input"
-                           placeholder="Tìm kiếm khu vực, tên đường,..."
+                           placeholder="Tìm kiếm khu vực, nơi ở,..."
                            value="{{ request('q') }}">
                     
                     </div>

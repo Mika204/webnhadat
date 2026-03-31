@@ -12,25 +12,6 @@ use Illuminate\Support\Facades\Auth;
 
 class UserBatdongsanController extends Controller
 {
-    public function search(Request $request)
-    {
-        $keyword = strtolower(trim($request->q));
-
-        $batdongsans = collect();
-
-        if ($keyword != '') {
-
-            $batdongsans = Batdongsan::join('khuvuc','batdongsan.idKv','=','khuvuc.idKv')
-                ->where(function($query) use ($keyword){
-                    $query->where(DB::raw('LOWER(tenBds)'), 'LIKE', "%$keyword%")
-                          ->orWhere(DB::raw('LOWER(tenKv)'), 'LIKE', "%$keyword%");
-                })
-                ->select('batdongsan.*','khuvuc.tenKv')
-                ->get();
-        }
-
-        return view('users.search', compact('batdongsans','keyword'));
-    }
     public function create()
     {
         $khuvucs = Khuvuc::all();

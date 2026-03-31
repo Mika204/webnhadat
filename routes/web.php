@@ -63,7 +63,7 @@ Route::prefix('users')->group(function () {
 
     Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-    Route::get('/timkiem', [UserBatdongsanController::class,'search'])
+    Route::get('/timkiem', [HomeController::class,'search'])
         ->name('batdongsan.search');
 
     Route::get('/batdongsan/{id}', [HomeController::class, 'show'])

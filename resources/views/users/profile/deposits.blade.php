@@ -14,6 +14,7 @@
                     <th>Bất động sản</th>
                     <th>Ngày hẹn</th>
                     <th>Tiền cọc</th>
+                    <th>Địa chỉ</th>
                     <th>Trạng thái</th>
                 </tr>
             </thead>
@@ -32,7 +33,7 @@
                     <td>
                         {{ number_format($lich->tienCoc,0,',','.') }} VND
                     </td>
-                
+                    <td>{{ $lich->batdongsan->diaChi ?? 'Không xác định' }}</td>
                     <td>
                         @if($lich->trangThai == 'đã xác nhận')
                             <span class="badge bg-success">Đã xác nhận</span>
