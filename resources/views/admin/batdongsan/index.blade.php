@@ -1,39 +1,51 @@
 @extends('layouts.adminapp')
 
 @section('content')
-<h2>Danh sách Bất động sản</h2>
+<div class="d-flex align-items-center mb-4 gap-2">
+    <span class="material-symbols-outlined text-primary" style="font-size: 2rem;">apartment</span>
+    <h4 class="mb-0 fw-bold">Danh sách Bất động sản</h4>
+</div>
 
-
-<table border="1" cellpadding="5">
-    <tr>
-        <th>ID</th>
-        <th>Tên</th>
-        <th>Giá</th>
-        <th>Hành động</th>
-    </tr>
-
-    @forelse($batdongsans as $bds)
-    <tr>
-        <td>{{ $bds->idbds }}</td>
-        <td>{{ $bds->tenBds }}</td>
-        <td>{{ number_format($bds->gia) }} VND</td>
-        <td>
-            <form action="{{ route('admin.batdongsan.destroy', $bds->idbds) }}" method="POST" style="display:inline;">
-                @csrf
-                @method('DELETE')
-                <button type="submit" onclick="return confirm('Bạn có chắc muốn xoá?')">
-                    Xóa
-                </button>
-            </form>
-        </td>
-    </tr>
-    @empty
-    <tr>
-        <td colspan="4" style="text-align:center;">
-            Không có bất động sản nào
-        </td>
-    </tr>
-    @endforelse
-
-</table>
+<div class="card border-0 shadow-sm">
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+                <thead class="table-light">
+                    <tr>
+                        <th class="px-4 py-3 text-muted">ID</th>
+                        <th class="py-3 text-muted">Tên bất động sản</th>
+                        <th class="py-3 text-muted">Giá</th>
+                        <th class="px-4 py-3 text-muted text-end">Hành động</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @forelse($batdongsans as $bds)
+                    <tr>
+                        <td class="px-4 fw-semibold text-secondary">#{{ $bds->idbds }}</td>
+                        <td class="fw-medium text-dark">{{ $bds->tenBds }}</td>
+                        <td>
+                            <span class="badge bg-success bg-opacity-10 text-success px-2 py-1 fs-6">
+                                {{ number_format($bds->gia) }} VNĐ
+                            </span>
+                        </td>
+                        <td class="px-4 text-end">
+                            <form action="{{ route('admin.batdongsan.destroy', $bds->idbds) }}" method="POST" class="d-inline" onsubmit="return confirm('Bạn có chắc chắn muốn xóa bất động sản này?');">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-sm btn-outline-danger d-inline-flex align-items-center justify-content-center" title="Xóa">
+                                    <span class="material-symbols-outlined fs-6 me-1">delete</span> Xóa
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                    @empty
+                    <tr>
+                        <td colspan="4" class="text-center py-4 text-muted">Chưa có dữ liệu bất động sản.</td>
+                    </tr>
+                    @endforelse
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 @endsection

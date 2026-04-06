@@ -46,5 +46,6 @@
     <button type="submit">Thanh toán tiền cọc & Tạo lịch hẹn</button>
 </form>
 @endif
+<a href="{{ route('giohang.index') }}" class="continue-shopping">← Quay lại</a>
 
 @endsection
