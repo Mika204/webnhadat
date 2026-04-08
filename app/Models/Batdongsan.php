@@ -3,8 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\KhuVuc;
-use App\Models\HinhAnh;
+use App\Models\Khuvuc;
+use App\Models\Hinhanh;
 
 
 class BatDongSan extends Model
@@ -34,7 +34,12 @@ class BatDongSan extends Model
     }
     public function hinhanhs()
     {   
-        return $this->hasMany(HinhAnh::class, 'idbds', 'idbds');
+        return $this->hasMany(Hinhanh::class, 'idbds', 'idbds');
+    }
+
+    public function datlichhens()
+    {
+        return $this->hasMany(Datlichhen::class, 'idbds', 'idbds');
     }
     
 }

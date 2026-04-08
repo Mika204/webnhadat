@@ -35,27 +35,26 @@
                     </td>
                     <td>{{ $lich->batdongsan->diaChi ?? 'Không xác định' }}</td>
                     <td>
-                        @if($lich->trangThai == 'đã xác nhận')
-                            <span class="badge bg-success">Đã xác nhận</span>
-                
-                        @elseif($lich->trangThai == 'chờ xác nhận')
-                            <span class="badge bg-warning text-dark">Chờ xác nhận</span>
-                
+                        @if($lich->trangThai == 'hoàn thành')
+                            <span class="badge bg-success">Hoàn thành</span>
+                        @elseif($lich->trangThai == 'đã cọc')
+                            <span class="badge bg-warning text-dark">Đã cọc</span>
                         @else
-                            <span class="badge bg-danger">Đã huỷ</span>
+                            <span class="badge bg-danger">Đã hủy</span>
                         @endif
                     </td>
-                
-                    <td>
-                        @if($lich->trangThai == 'chờ xác nhận')
+                    <td class="text-center">
+                        @if($lich->trangThai == 'đã cọc')
                             <form action="{{ route('datlichhen.destroy', $lich->id_dat_lich_hen) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <button onclick="return confirm('Bạn chắc chắn muốn huỷ lịch hẹn?')" 
-                                        class="btn btn-danger btn-sm">
-                                    Huỷ
+                                <button onclick="return confirm('Bạn chắc chắn muốn hủy lịch hẹn?')" 
+                                        class="btn btn-outline-danger btn-sm rounded-pill">
+                                    Hủy
                                 </button>
                             </form>
+                        @elseif($lich->trangThai == 'hoàn thành')
+                            <span class="text-success small fw-bold">Giao dịch thành công</span>
                         @else
                             -
                         @endif

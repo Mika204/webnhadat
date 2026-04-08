@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\DatLichHen;
+use App\Models\Datlichhen;
 use App\Models\Batdongsan;
 use App\Models\Khuvuc;
 use Illuminate\Http\Request;
@@ -16,9 +16,9 @@ class ProfileController extends Controller
         $user = Auth::user();
 
         // lịch hẹn
-        $datlichhen = DatLichHen::where('id_nguoi_mua', $user->iduser)->get();
+        $datlichhen = Datlichhen::where('id_nguoi_mua', $user->iduser)->get();
 
-        $posts = Batdongsan::with(['hinhanhs','khuvuc'])
+        $posts = Batdongsan::with(['hinhanhs','khuvuc', 'datlichhens.nguoiMua'])
             ->where('iduser', $user->iduser)
             ->orderBy('idbds','desc')
             ->get();

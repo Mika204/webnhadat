@@ -27,10 +27,6 @@ class Datlichhen extends Model
         return $this->belongsTo(User::class, 'id_nguoi_mua');
     }
 
-    public function nguoiBan()
-    {
-        return $this->belongsTo(User::class, 'iduser');
-    }
 
     public function batdongsan()
     {

@@ -9,41 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <style>
-        body {
-            font-family: 'Be Vietnam Pro', sans-serif;
-            background-color: #f4f6f9;
-        }
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-            vertical-align: middle;
-        }
-        .sidebar-link {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 10px 12px;
-            border-radius: 8px;
-            color: #444;
-            text-decoration: none;
-            font-weight: 500;
-            transition: background 0.2s, color 0.2s;
-        }
-        .sidebar-link:hover {
-            background: #e8f0fe;
-            color: #1a73e8;
-        }
-        .sidebar-link.active {
-            background: #1a73e8;
-            color: #fff;
-        }
-        .sidebar-link.active .material-symbols-outlined {
-            color: #fff;
-        }
-        header {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-        }
-    </style>
+    <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
 </head>
 
 <body>
@@ -95,6 +61,12 @@
                     <a class="sidebar-link" href="{{ route('admin.khuvuc.index') }}">
                         <span class="material-symbols-outlined" style="color:#8e24aa">location_on</span>
                         Khu vực
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="sidebar-link" href="{{ route('admin.doanhthu.index') }}">
+                        <span class="material-symbols-outlined" style="color:#202124">payments</span>
+                        Doanh thu
                     </a>
                 </li>
             </ul>

@@ -55,6 +55,11 @@ class UserBatdongsanController extends Controller
     public function edit($id)
     {
         $bds = Batdongsan::findOrFail($id);
+
+        if ($this->isLocked($bds)) {
+            return redirect()->route('profile.index')->with('error', 'Bài đăng đã bị khóa do đang trong quá trình đặt cọc/hoàn thành!');
+        }
+
         $khuvucs = Khuvuc::all();
         return view('users.profile.edit', compact('bds', 'khuvucs'));
     }
@@ -62,6 +67,12 @@ class UserBatdongsanController extends Controller
     // Cập nhật bất động sản
     public function update(Request $request, $id)
     {
+        $bds = Batdongsan::findOrFail($id);
+
+        if ($this->isLocked($bds)) {
+            return redirect()->route('profile.index')->with('error', 'Không thể cập nhật bài đăng đã bị khóa!');
+        }
+
         $request->validate([
             'tenBds' => 'required|string|max:255',
             'gia' => 'required|numeric',
@@ -71,7 +82,6 @@ class UserBatdongsanController extends Controller
             'hinhanh.*' => 'image|mimes:jpg,jpeg,png|max:2048'
         ]);
 
-        $bds = Batdongsan::findOrFail($id);
         $bds->update([
             'tenBds' => $request->tenBds,
             'gia' => $request->gia,
@@ -92,5 +102,22 @@ class UserBatdongsanController extends Controller
         }
 
         return redirect()->route('profile.index')->with('success', 'Cập nhật bất động sản thành công!');
+    }
+
+    public function destroy($id)
+    {
+        $bds = Batdongsan::where('iduser', Auth::id())->findOrFail($id);
+
+        if ($this->isLocked($bds)) {
+            return redirect()->route('profile.index')->with('error', 'Không thể xóa bài đăng đã bị khóa!');
+        }
+        $bds->hinhanhs()->delete();
+        $bds->delete();
+        return redirect()->route('profile.index')->with('success', 'Xóa bài đăng thành công!');
+    }
+
+    private function isLocked($bds)
+    {
+        return $bds->datlichhens()->whereIn('trangThai', ['đã cọc', 'hoàn thành'])->exists();
     }
 }

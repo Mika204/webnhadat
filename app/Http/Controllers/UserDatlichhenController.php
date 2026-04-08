@@ -21,17 +21,38 @@ class UserDatlichhenController extends Controller
         return view('users.datlichhen.index', compact('lichhens'));
     }
 
-    
-    // Hủy lịch hẹn
+    // Cập nhật trạng thái (cho Chủ nhà)
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'trangThai' => 'required|in:đã cọc,hoàn thành,hủy'
+        ]);
+
+        $lichhen = Datlichhen::with('batdongsan')->findOrFail($id);
+
+        // Kiểm tra xem người dùng hiện tại có phải chủ nhà không
+        if ($lichhen->batdongsan->iduser != Auth::id()) {
+            abort(403);
+        }
+
+        $lichhen->update([
+            'trangThai' => $request->trangThai
+        ]);
+
+        return redirect()->to(route('profile.index') . '#posts')->with('success', 'Cập nhật trạng thái lịch hẹn thành công!');
+    }
+
+    // Hủy lịch hẹn (cho Người mua)
     public function destroy($id)
     {
         $lichhen = Datlichhen::where('id_nguoi_mua', Auth::id()) 
             ->findOrFail($id);
 
-            $lichhen->update([
-                'trangThai' => 'huỷ'
-            ]);
-        return redirect()->route('datlichhen.destroy') 
+        $lichhen->update([
+            'trangThai' => 'hủy'
+        ]);
+
+        return redirect()->to(route('profile.index') . '#deposits') 
             ->with('success', 'Hủy lịch hẹn thành công!');
     }
 }

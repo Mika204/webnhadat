@@ -13,6 +13,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/user_style.css') }}">
     </head>
     
 <body style="min-height:100vh; display:flex; flex-direction:column;">

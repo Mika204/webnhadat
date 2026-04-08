@@ -52,7 +52,6 @@ Route::prefix('admin')->name('admin.')->group(function(){
     Route::get('/admin/duyet-bai/{id}', [AdminUserController::class, 'duyetBai'])->name('duyet.bai'); 
     Route::get('/admin/tu-choi-bai/{id}', [AdminUserController::class, 'tuChoiBai'])->name('tu.choi.bai'); 
     Route::get('datlichhen', [DatlichhenController::class, 'index'])->name('datlichhen.index');
-    Route::put('datlichhen/{id}', [DatlichhenController::class, 'update'])->name('datlichhen.update');
     Route::delete('datlichhen/{id}', [DatlichhenController::class, 'destroy'])->name('datlichhen.destroy');
     Route::resource('khuvuc', KhuvucController::class);
     Route::resource('doanhthu', DoanhthuController::class);
@@ -125,6 +124,7 @@ Route::middleware('auth')->group(function () {
     Route::prefix('datlichhen')->name('datlichhen.')->group(function () {
 
         Route::get('/', [UserDatlichhenController::class, 'index'])->name('index');
+        Route::put('/update/{id}', [UserDatlichhenController::class, 'update'])->name('update');
         Route::delete('/destroy/{id}', [UserDatlichhenController::class, 'destroy'])->name('destroy');
     });
 
@@ -136,6 +136,3 @@ Route::middleware('auth')->group(function () {
     });
 
 });
-
-
-

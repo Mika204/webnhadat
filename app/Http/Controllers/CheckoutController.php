@@ -42,7 +42,7 @@ class CheckoutController extends Controller
 
         $request->validate([
             'ngayhen' => 'required|date|after_or_equal:today',
-            'pttt' => 'required|in:tiền mặt,chuyển khoản'
+            'pttt' => 'required|in:chuyển khoản'
         ]);
 
         $giohang = Giohang::with('batdongsan')
@@ -60,7 +60,7 @@ class CheckoutController extends Controller
                 'ngayDat'      => $request->ngayhen,
                 'tienCoc'      => $item->batdongsan->gia * 0.05,
                 'pttt'         => $request->pttt,
-                'trangThai'    => 'chờ xác nhận'
+                'trangThai'    => 'đã cọc'
             ]);
         }
 

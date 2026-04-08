@@ -17,6 +17,9 @@ class HomeController extends Controller
         $query = Batdongsan::with('hinhanhs')
             ->join('khuvuc','batdongsan.idKv','=','khuvuc.idKv')
             ->where('batdongsan.trangThai', 'đã duyệt') 
+            ->whereDoesntHave('datlichhens', function($q) {
+                $q->whereIn('trangThai', ['đã cọc', 'hoàn thành']);
+            })
             ->select('batdongsan.*','khuvuc.tenKv');
     
         // lọc theo khu vực
@@ -36,6 +39,9 @@ class HomeController extends Controller
     {
         $bds = Batdongsan::with(['hinhanhs','khuvuc'])
             ->where('trangThai','đã duyệt') 
+            ->whereDoesntHave('datlichhens', function($q) {
+                $q->whereIn('trangThai', ['đã cọc', 'hoàn thành']);
+            })
             ->findOrFail($id);
 
         return view('users.detail', compact('bds'));
@@ -49,6 +55,10 @@ class HomeController extends Controller
         if ($keyword != '') {
 
             $batdongsans = Batdongsan::join('khuvuc','batdongsan.idKv','=','khuvuc.idKv')
+                ->where('batdongsan.trangThai', 'đã duyệt')
+                ->whereDoesntHave('datlichhens', function($q) {
+                    $q->whereIn('trangThai', ['đã cọc', 'hoàn thành']);
+                })
                 ->where(function($query) use ($keyword){
                     $query->where(DB::raw('LOWER(tenBds)'), 'LIKE', "%$keyword%")
                           ->orWhere(DB::raw('LOWER(tenKv)'), 'LIKE', "%$keyword%");

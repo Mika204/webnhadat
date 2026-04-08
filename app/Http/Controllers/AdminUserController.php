@@ -12,7 +12,9 @@ class AdminUserController extends Controller
     public function index()
     {
         $user = User::all();
-        $bdsChoDuyet = Batdongsan::where('trangThai','chờ duyệt')->get();
+        $bdsChoDuyet = Batdongsan::with(['user', 'hinhanhs'])
+            ->where('trangThai','chờ duyệt')
+            ->get();
 
         return view('admin.user.index', compact('user','bdsChoDuyet'));
     }

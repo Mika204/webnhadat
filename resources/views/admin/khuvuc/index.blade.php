@@ -33,6 +33,9 @@
                             </div>
                         </td>
                         <td class="px-4 text-end">
+                            <a href="{{ route('admin.khuvuc.edit', $kv->idKv) }}" class="btn btn-sm btn-outline-warning d-inline-flex align-items-center justify-content-center me-1" title="Sửa">
+                                <span class="material-symbols-outlined fs-6 me-1">edit</span> Sửa
+                            </a>
                             <form action="{{ route('admin.khuvuc.destroy', $kv->idKv) }}" method="POST" class="d-inline" onsubmit="return confirm('Bạn có chắc chắn muốn xóa khu vực này?');">
                                 @csrf
                                 @method('DELETE')
@@ -58,4 +61,3 @@
     </div>
 </div>
 @endsection
-

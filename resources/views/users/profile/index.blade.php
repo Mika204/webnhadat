@@ -3,9 +3,6 @@
 
 @section('content')
 <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-@if(session('success'))
-    <p style="color:green">{{ session('success') }}</p>
-@endif
 @if(session('info'))
     <p style="color:blue">{{ session('info') }}</p>
 @endif
@@ -77,17 +74,30 @@
         el.classList.remove('active');
     });
 
-    document.getElementById(tab).classList.add('active');
+    const targetTab = document.getElementById(tab);
+    if(targetTab) {
+        targetTab.classList.add('active');
+    }
 
     document.querySelectorAll('nav button').forEach(btn=>{
         btn.classList.remove('btn-light');
         btn.classList.add('btn-outline-secondary');
     });
 
-    document.getElementById('nav-' + tab).classList.add('btn-light');
+    const targetBtn = document.getElementById('nav-' + tab);
+    if(targetBtn) {
+        targetBtn.classList.add('btn-light');
+    }
   }
 
-    
+  // Handle URL Hash for Tabs
+  window.addEventListener('DOMContentLoaded', () => {
+    const hash = window.location.hash.substring(1);
+    if (hash) {
+      switchTab(hash);
+    }
+  });
+
 </script>
     
   

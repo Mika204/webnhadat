@@ -16,7 +16,7 @@ class AdminAuthController extends Controller
     // Form login
     public function showLogin()
     {
-        if (Auth::check()) {
+        if (Auth::guard('admin')->check()) {
             return redirect()->route('admin.dashboard');
         }
     
@@ -33,8 +33,6 @@ class AdminAuthController extends Controller
 
         $admin = Admin::where('emailadmin', $request->emailadmin)->first();
         
-
-
         // Kiểm tra admin tồn tại + password đúng
         if ($admin && $request->passwordadmin == $admin->passwordadmin){
 
@@ -48,9 +46,12 @@ class AdminAuthController extends Controller
     }
 
     // Đăng xuất admin
-    public function logout()
+    public function logout(Request $request)
     {
         Auth::guard('admin')->logout();
+        
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
 
         return redirect()->route('admin.login')
             ->with('success', 'Đã đăng xuất!');
@@ -64,20 +65,8 @@ class AdminAuthController extends Controller
         $tongLichhen = Datlichhen::count();
         $tongKhuvuc = Khuvuc::count();
 
-        // Doanh thu theo tháng (tổng tiền cọc của lịch hẹn đã xác nhận)
-        $doanhThuThang = [];
-        $nhanThang = [];
-        for ($i = 1; $i <= 12; $i++) {
-            $nhanThang[] = 'Tháng ' . $i;
-            $doanhThuThang[] = Datlichhen::whereMonth('ngayDat', $i)
-                ->whereYear('ngayDat', date('Y'))
-                ->where('trangThai', 'đã xác nhận')
-                ->sum('tienCoc') ?? 0;
-        }
-
         return view('admin.dashboard', compact(
-            'tongBds', 'tongUser', 'tongLichhen', 'tongKhuvuc',
-            'doanhThuThang', 'nhanThang'
+            'tongBds', 'tongUser', 'tongLichhen', 'tongKhuvuc'
         ));
     }
 }
