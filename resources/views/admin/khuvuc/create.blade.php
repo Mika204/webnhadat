@@ -30,7 +30,6 @@
                                    name="tenKv" 
                                    class="form-control border-start-0 bg-light" 
                                    value="{{ old('tenKv') }}" 
-                                   placeholder="Ví dụ: Quận 1, Tp. Hồ Chí Minh"
                                    required>
                         </div>
                         <div class="form-text mt-2">Đảm bảo tên khu vực là duy nhất để tránh nhầm lẫn.</div>
