@@ -2,44 +2,45 @@
 
 @section('content')
 
-<div class="container py-5 animate-up">
+<div class="container py-4 animate-up">
     <div class="row justify-content-center">
-        <div class="col-lg-8">
+        <div class="col-lg-6 col-md-8">
             <div class="form-premium-card">
                 <h2 class="form-section-title">Đăng tin bất động sản</h2>
-                <p class="text-secondary mb-4">Chia sẻ thông tin tài sản của bạn để tiếp cận hàng ngàn khách hàng tiềm năng.</p>
+                <p class="text-secondary mb-3">Chia sẻ thông tin tài sản của bạn để tiếp cận khách hàng.</p>
 
                 <form method="POST" action="{{ route('batdongsan.store') }}" enctype="multipart/form-data">
                     @csrf
 
-                    <div class="mb-4">
-                        <label for="tenBds" class="form-label-premium">Tên bất động sản</label>
+                    <div class="mb-3">
+                        <label class="form-label-premium">Tên bất động sản</label>
                         <div class="input-group input-group-premium">
                             <span class="input-group-text">
-                                <iconify-icon icon="solar:pen-new-square-linear" width="20"></iconify-icon>
+                                <iconify-icon icon="solar:pen-new-square-linear"></iconify-icon>
                             </span>
-                            <input type="text" id="tenBds" name="tenBds" class="form-control" placeholder="Ví dụ: Căn hộ Vinhomes Grand Park" required>
+                            <input type="text" name="tenBds" class="form-control" placeholder="Tên BĐS" required>
                         </div>
                     </div>
 
-                    <div class="row mb-4">
+                    <div class="row mb-3">
                         <div class="col-md-6">
-                            <label for="gia" class="form-label-premium">Giá (VNĐ)</label>
+                            <label class="form-label-premium">Giá</label>
                             <div class="input-group input-group-premium">
                                 <span class="input-group-text">
-                                    <iconify-icon icon="solar:wad-of-money-linear" width="20"></iconify-icon>
+                                    <iconify-icon icon="solar:wad-of-money-linear"></iconify-icon>
                                 </span>
-                                <input type="number" id="gia" name="gia" class="form-control" placeholder="Nhập giá bán" required>
+                                <input type="number" name="gia" class="form-control" placeholder="VNĐ" required>
                             </div>
                         </div>
-                        <div class="col-md-6 mt-3 mt-md-0">
-                            <label for="idKv" class="form-label-premium">Khu vực</label>
+
+                        <div class="col-md-6 mt-2 mt-md-0">
+                            <label class="form-label-premium">Khu vực</label>
                             <div class="input-group input-group-premium">
                                 <span class="input-group-text">
-                                    <iconify-icon icon="solar:map-point-linear" width="20"></iconify-icon>
+                                    <iconify-icon icon="solar:map-point-linear"></iconify-icon>
                                 </span>
-                                <select id="idKv" name="idKv" class="form-select" required>
-                                    <option value="" selected disabled>Chọn khu vực</option>
+                                <select name="idKv" class="form-select" required>
+                                    <option disabled selected>Chọn</option>
                                     @foreach($khuvucs as $kv)
                                         <option value="{{ $kv->idKv }}">{{ $kv->tenKv }}</option>
                                     @endforeach
@@ -48,45 +49,45 @@
                         </div>
                     </div>
 
-                    <div class="mb-4">
-                        <label for="diaChi" class="form-label-premium">Địa chỉ chi tiết</label>
+                    <div class="mb-3">
+                        <label class="form-label-premium">Địa chỉ</label>
                         <div class="input-group input-group-premium">
                             <span class="input-group-text">
-                                <iconify-icon icon="solar:streets-navigation-linear" width="20"></iconify-icon>
+                                <iconify-icon icon="solar:streets-navigation-linear"></iconify-icon>
                             </span>
-                            <input type="text" id="diaChi" name="diaChi" class="form-control" placeholder="Số nhà, tên đường, phường/xã..." required>
+                            <input type="text" name="diaChi" class="form-control" placeholder="Địa chỉ..." required>
                         </div>
                     </div>
 
-                    <div class="mb-4">
-                        <label for="moTa" class="form-label-premium">Mô tả chi tiết</label>
-                        <div class="input-group input-group-premium" style="align-items: flex-start;">
-                            <span class="input-group-text mt-2">
-                                <iconify-icon icon="solar:notes-linear" width="20"></iconify-icon>
+                    <div class="mb-3">
+                        <label class="form-label-premium">Mô tả</label>
+                        <div class="input-group input-group-premium">
+                            <span class="input-group-text mt-1">
+                                <iconify-icon icon="solar:notes-linear"></iconify-icon>
                             </span>
-                            <textarea id="moTa" name="moTa" class="form-control" rows="5" placeholder="Mô tả đặc điểm, tện ích, hướng nhà..."></textarea>
+                            <textarea name="moTa" class="form-control" rows="3" placeholder="Mô tả..."></textarea>
                         </div>
                     </div>
 
-                    <div class="mb-4">
-                        <label for="hinhanh" class="form-label-premium">Hình ảnh sản phẩm</label>
+                    <div class="mb-3">
+                        <label class="form-label-premium">Hình ảnh</label>
                         <div class="input-group input-group-premium">
                             <span class="input-group-text">
-                                <iconify-icon icon="solar:gallery-linear" width="20"></iconify-icon>
+                                <iconify-icon icon="solar:gallery-linear"></iconify-icon>
                             </span>
-                            <input type="file" id="hinhanh" name="hinhanh[]" class="form-control" multiple>
+                            <input type="file" name="hinhanh[]" class="form-control" multiple>
                         </div>
-                        <small class="text-muted mt-2 d-block">Có thể chọn nhiều ảnh cùng lúc (JPG, PNG).</small>
                     </div>
 
-                    <div class="d-flex align-items-center justify-content-between mt-5">
+                    <div class="d-flex justify-content-between mt-4">
                         <a href="{{ route('profile.index') }}" class="text-secondary text-decoration-none">
-                            <iconify-icon icon="solar:alt-arrow-left-linear" style="vertical-align: middle;"></iconify-icon> Quay lại
+                            ← Quay lại
                         </a>
                         <button type="submit" class="btn-premium">
-                            Đăng tin ngay <iconify-icon icon="solar:check-read-linear" style="vertical-align: middle; margin-left: 5px;"></iconify-icon>
+                            Đăng tin
                         </button>
                     </div>
+
                 </form>
             </div>
         </div>
