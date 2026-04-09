@@ -54,15 +54,17 @@ class AuthController extends Controller
     public function register(Request $request)
     {
         $request->validate([
-            'hoten' => 'required|string|max:255',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|min:6|confirmed'
+            'hoten'    => 'required|string|max:255',
+            'email'    => 'required|email|unique:users,email',
+            'password' => 'required|min:6|confirmed',
+            'sdt'      => 'nullable|string|max:20',
         ]);
 
         User::create([
-            'hoten' => $request->hoten,
-            'email' => $request->email,
-            'password' => Hash::make($request->password) 
+            'hoten'    => $request->hoten,
+            'email'    => $request->email,
+            'password' => Hash::make($request->password),
+            'sdt'      => $request->sdt,
         ]);
 
         return redirect()->route('login')
@@ -70,4 +72,3 @@ class AuthController extends Controller
     }
 
 }
-
