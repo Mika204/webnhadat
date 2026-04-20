@@ -21,7 +21,7 @@ class BatdongsanController extends Controller
     public function destroy($id)
     {
         $bds = Batdongsan::findOrFail($id);
-        $bds->hinhanhs()->delete(); // Xóa hình ảnh liên quan
+        $bds->hinhanhs()->delete(); 
         $bds->delete();
 
         return redirect()->route('admin.batdongsan.index')->with('success', 'Xóa bất động sản thành công!');

@@ -5,7 +5,7 @@
 <div class="container animate-up">
     <div class="row g-5">
         
-        <!-- Cột trái: Gallery Ảnh -->
+        <!-- trái: Ảnh -->
         <div class="col-lg-7">
             <div class="card border-0 shadow-premium overflow-hidden rounded-4">
                 <div class="position-relative">
@@ -43,7 +43,7 @@
             @endif
         </div>
 
-        <!-- Cột phải: Thông tin & Hành động -->
+        <!-- phải: Thông tin & Hành động -->
         <div class="col-lg-5">
             <div class="sticky-top" style="top: 100px;">
                 <nav aria-label="breadcrumb" class="mb-3">

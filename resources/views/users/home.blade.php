@@ -106,14 +106,12 @@ $khuvuc = $sp->khuvuc->tenKv ?? 'Không xác định';
 
 <nav class="mt-4">
     <ul class="pagination justify-content-center">
-
         {{-- Previous --}}
         <li class="page-item {{ ($batdongsan->currentPage() == 1) ? 'disabled' : '' }}">
             <a class="page-link" href="{{ $batdongsan->url($batdongsan->currentPage()-1) }}">
                 Trước
             </a>
         </li>
-
         {{-- Page numbers --}}
         @for ($i = 1; $i <= $batdongsan->lastPage(); $i++)
             <li class="page-item {{ ($batdongsan->currentPage() == $i) ? 'active' : '' }}">
@@ -122,7 +120,6 @@ $khuvuc = $sp->khuvuc->tenKv ?? 'Không xác định';
                 </a>
             </li>
         @endfor
-
         {{-- Next --}}
         <li class="page-item {{ ($batdongsan->currentPage() == $batdongsan->lastPage()) ? 'disabled' : '' }}">
             <a class="page-link" href="{{ $batdongsan->url($batdongsan->currentPage()+1) }}">

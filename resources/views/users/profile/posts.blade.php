@@ -5,13 +5,9 @@
     + Đăng tin mới
 </a>
 
-
 @if($posts->count() > 0)
-
     <div class="row">
-
         @foreach($posts as $bds)
-
             <div class="col-md-4 mb-4">
                 <div class="card">
 
@@ -87,17 +83,11 @@
                                 </div>
                             </div>
                         @endif
-
                     </div>
                 </div>
             </div>
-
         @endforeach
-
     </div>
-
 @else
-
     <p> Chưa có bài đăng nào.</p>
-
 @endif

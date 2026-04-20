@@ -8,7 +8,6 @@
 
     <div class="slide-container">
 
-        <!-- LOGIN PANEL -->
         <div class="panel p-4">
             <div class="auth-icon">
                 <iconify-icon icon="solar:home-smile-linear"></iconify-icon>
