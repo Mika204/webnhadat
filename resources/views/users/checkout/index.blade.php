@@ -53,7 +53,6 @@
                         </div>
                     </div>
 
-                    <!-- Form Đặt hẹn -->
                     <div class="card border-0 shadow-sm rounded-4">
                         <div class="card-body p-4">
                             <h5 class="fw-bold mb-4 d-flex align-items-center gap-2">
@@ -95,7 +94,6 @@
                     </div>
                 </div>
 
-                <!-- Cột phải: Tóm tắt thanh toán -->
                 <div class="col-lg-5">
                     <div class="card border-0 shadow-premium rounded-4 sticky-top" style="top: 100px;">
                         <div class="card-body p-4">

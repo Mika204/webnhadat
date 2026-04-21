@@ -29,7 +29,6 @@
         </div>
     @else
         <div class="row g-4">
-            <!-- Cột trái: Danh sách sản phẩm -->
             <div class="col-lg-8">
                 <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
                     <div class="table-responsive">
