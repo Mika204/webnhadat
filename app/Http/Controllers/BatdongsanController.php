@@ -9,15 +9,12 @@ use App\Models\Khuvuc;
 
 class BatdongsanController extends Controller
 {
-    // Hiển thị danh sách bất động sản
     public function index()
     {
         $batdongsans = Batdongsan::with('khuvuc', 'hinhanhs')->get();
         return view('admin.batdongsan.index', compact('batdongsans'));
     }
 
-
-    // Xóa bất động sản
     public function destroy($id)
     {
         $bds = Batdongsan::findOrFail($id);

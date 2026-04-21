@@ -22,12 +22,10 @@ class HomeController extends Controller
             })
             ->select('batdongsan.*','khuvuc.tenKv');
     
-        // lọc theo khu vực
         if ($request->idKv) {
             $query->where('batdongsan.idKv', $request->idKv);
         }
     
-        // paginate
         $batdongsan = $query->orderBy('idbds','desc')
             ->paginate(6)
             ->withQueryString();

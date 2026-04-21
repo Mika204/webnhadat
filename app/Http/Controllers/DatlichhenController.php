@@ -7,7 +7,6 @@ use App\Models\Datlichhen;
 
 class DatlichhenController extends Controller
 {
-    // Admin xem tất cả lịch hẹn
     public function index()
     {
         $lichhens = Datlichhen::with(['batdongsan.user', 'nguoiMua'])
@@ -16,7 +15,6 @@ class DatlichhenController extends Controller
         return view('admin.datlichhen.index', compact('lichhens'));
     }
 
-    // Xóa lịch hẹn
     public function destroy($id)
     {
         $lichhen = Datlichhen::findOrFail($id);

@@ -9,7 +9,6 @@ use App\Models\User;
 
 class AuthController extends Controller
 {
-    // Hiển thị form
     public function showLogin()
     {
         if (Auth::check()) {
@@ -19,7 +18,6 @@ class AuthController extends Controller
         return view('users.index', ['type' => 'login']);
     }
 
-    // Xử lý đăng nhập
     public function login(Request $request)
     {
         $credentials = $request->validate([
@@ -37,7 +35,6 @@ class AuthController extends Controller
         return back()->with('msg', 'Email hoặc mật khẩu không đúng');
     }
 
-    // Logout
     public function logout(Request $request)
     {
         Auth::logout();

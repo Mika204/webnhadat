@@ -13,7 +13,6 @@ use Illuminate\Support\Facades\Auth;
 
 class AdminAuthController extends Controller
 {
-    // Form login
     public function showLogin()
     {
         if (Auth::guard('admin')->check()) {
@@ -23,7 +22,6 @@ class AdminAuthController extends Controller
         return view('admin.login');
     }
 
-    // Xử lý đăng nhập admin
     public function login(Request $request)
     {
         $request->validate([
@@ -33,7 +31,6 @@ class AdminAuthController extends Controller
 
         $admin = Admin::where('emailadmin', $request->emailadmin)->first();
         
-        // Kiểm tra admin tồn tại + password đúng
         if ($admin && $request->passwordadmin == $admin->passwordadmin){
 
             Auth::guard('admin')->login($admin);
@@ -45,7 +42,6 @@ class AdminAuthController extends Controller
         return back()->with('error', 'Sai email hoặc mật khẩu!');
     }
 
-    // Đăng xuất admin
     public function logout(Request $request)
     {
         Auth::guard('admin')->logout();
@@ -57,7 +53,6 @@ class AdminAuthController extends Controller
             ->with('success', 'Đã đăng xuất!');
     }
 
-    // Trang dashboard admin
     public function dashboard()
     {
         $tongBds    = Batdongsan::count();

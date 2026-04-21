@@ -17,7 +17,6 @@ class UserBatdongsanController extends Controller
         $khuvucs = Khuvuc::all();
         return view('users.profile.create', compact('khuvucs'));
     }
-    // Lưu bất động sản mới
     public function store(Request $request)
     {
         $request->validate([
@@ -38,7 +37,6 @@ class UserBatdongsanController extends Controller
             'iduser' => Auth::id(),
             'trangThai' => 'chờ duyệt'
         ]);
-        // Lưu hình ảnh
         if ($request->hasFile('hinhanh')) {
             foreach ($request->file('hinhanh') as $file) {
                 $path = $file->store('uploads', 'public');
@@ -51,7 +49,6 @@ class UserBatdongsanController extends Controller
 
         return redirect()->route('profile.index')->with('success','Đăng tin thành công, chờ duyệt!');
     }
-    // Form chỉnh sửa bất động sản
     public function edit($id)
     {
         $bds = Batdongsan::findOrFail($id);
@@ -64,7 +61,6 @@ class UserBatdongsanController extends Controller
         return view('users.profile.edit', compact('bds', 'khuvucs'));
     }
 
-    // Cập nhật bất động sản
     public function update(Request $request, $id)
     {
         $bds = Batdongsan::findOrFail($id);

@@ -10,7 +10,6 @@ use App\Models\Batdongsan;
 
 class CheckoutController extends Controller
 {
-    // Hiển thị form checkout
     public function index()
     {
         $userId = Auth::id();
@@ -31,7 +30,6 @@ class CheckoutController extends Controller
         return view('users.checkout.index', compact('giohang', 'totalCoc'));
     }
 
-    // Xử lý thanh toán + tạo lịch hẹn
     public function pay(Request $request)
     {
         $userId = Auth::id();

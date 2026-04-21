@@ -15,7 +15,6 @@ class ProfileController extends Controller
     {
         $user = Auth::user();
 
-        // lịch hẹn
         $datlichhen = Datlichhen::where('id_nguoi_mua', $user->iduser)->get();
 
         $posts = Batdongsan::with(['hinhanhs','khuvuc', 'datlichhens.nguoiMua'])

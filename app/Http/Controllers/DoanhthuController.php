@@ -8,14 +8,11 @@ use Illuminate\Support\Facades\DB;
 
 class DoanhthuController extends Controller
 {
-    // Hiển thị báo cáo doanh thu
     public function index()
     {
-        // Tổng doanh thu từ các lịch hẹn đã xác nhận
         $tongDoanhThu = Datlichhen::whereIn('trangThai', ['đã cọc', 'hoàn thành'])
             ->sum('tienCoc');
 
-        // Doanh thu theo tháng để vẽ biểu đồ (12 tháng)
         $doanhThuThang = [];
         $nhanThang = [];
         for ($i = 1; $i <= 12; $i++) {
@@ -26,7 +23,6 @@ class DoanhthuController extends Controller
                 ->sum('tienCoc') ?? 0;
         }
 
-        // Dữ liệu bảng (lọc các tháng có doanh thu > 0)
         $doanhThuTheoThang = Datlichhen::select(
                 DB::raw('MONTH(ngayDat) as thang'),
                 DB::raw('SUM(tienCoc) as tong')
