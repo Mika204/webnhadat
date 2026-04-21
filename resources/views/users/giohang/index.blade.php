@@ -105,7 +105,6 @@
                 </div>
             </div>
 
-            <!-- Cột phải: Tóm tắt đơn hàng -->
             <div class="col-lg-4">
                 <div class="card border-0 shadow-premium rounded-4 cart-summary">
                     <div class="card-body p-4">
