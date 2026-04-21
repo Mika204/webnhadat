@@ -2,14 +2,12 @@
 
 @section('content')
 
-{{-- Tiêu đề --}}
 <div class="d-flex align-items-center mb-4">
     <span class="material-symbols-outlined me-2 text-primary" style="font-size:2rem;">bar_chart</span>
     <h4 class="mb-0 fw-bold">Tổng quan hệ thống</h4>
     <span class="ms-3 text-muted small">Năm {{ date('Y') }}</span>
 </div>
 
-{{-- Thẻ thống kê --}}
 <div class="row g-3 mb-4">
     <div class="col-md-3">
         <div class="card border-0 shadow-sm text-white" style="background: linear-gradient(135deg,#1a73e8,#185abc)">

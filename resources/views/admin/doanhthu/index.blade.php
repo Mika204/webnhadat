@@ -2,14 +2,12 @@
 
 @section('content')
 
-{{-- Tiêu đề --}}
 <div class="d-flex align-items-center mb-4">
     <span class="material-symbols-outlined me-2 text-success" style="font-size:2rem;">payments</span>
     <h4 class="mb-0 fw-bold">Báo cáo doanh thu</h4>
     <span class="ms-3 text-muted small">Dữ liệu năm {{ date('Y') }}</span>
 </div>
 
-{{-- Thẻ thống kê tổng quát --}}
 <div class="row g-3 mb-4">
     <div class="col-md-4">
         <div class="card border-0 shadow-sm text-white" style="background: linear-gradient(135deg,#34a853,#1e8e3e)">
