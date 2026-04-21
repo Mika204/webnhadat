@@ -55,7 +55,6 @@
                              </form>
                         </div>
 
-                        {{-- Danh sách lịch hẹn cho bài đăng này --}}
                         @if($bds->datlichhens->count() > 0)
                             <div class="mt-3 pt-3 border-top">
                                 <h6 class="fw-bold small mb-2">Lịch hẹn / Đặt cọc:</h6>

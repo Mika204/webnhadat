@@ -9,7 +9,6 @@
 <div class="container mt-4">
     <div class="row  align-items-start">
   
-      <!-- MENU BÊN TRÁI -->
       <aside class="col-md-2 border-end pt-3 bg-white">
   
         <nav class="nav flex-md-column flex-row p-3 gap-2 overflow-auto">
@@ -49,16 +48,13 @@
   
     <div class="col-md-10 mt-3 mt-md-0">
 
-        <!-- TAB ACCOUNT -->
         <div id="account" class="tab-content active">
             @include('users.profile.account')
         </div>
-        <!-- TAB DEPOSITS -->
         <div id="deposits" class="tab-content">
             @include('users.profile.deposits')
         </div>
         
-        <!-- TAB POSTS -->
         <div id="posts" class="tab-content">
             @include('users.profile.posts')
         </div>
